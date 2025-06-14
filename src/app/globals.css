@@ -24,3 +24,40 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.projects-container {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scroll-behavior: smooth;
+  scroll-padding: 0;
+  touch-action: pan-x;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.projects-container::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
+}
+
+.project-card {
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  touch-action: pan-x;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.projects-wrapper {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  will-change: transform;
+  min-width: 100%;
+  transform: translateZ(0);
+}
