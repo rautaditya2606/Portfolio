@@ -13,7 +13,7 @@ import { m } from 'framer-motion'
 export default function Home() { 
   return (
     <main className="relative">
-      <Section fullHeight className="flex items-center justify-center relative overflow-hidden min-h-[90vh]">
+      <Section fullHeight className="flex items-center justify-center relative overflow-hidden">
         <div className="relative z-10 text-center">
           <m.div
             initial={{ opacity: 0, y: 20 }}

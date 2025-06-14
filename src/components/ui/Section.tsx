@@ -32,7 +32,7 @@ export const Section = ({ children, className, fullHeight = false, ...props }: S
       variants={variants}
       className={cn(
         'w-full px-4 py-16 md:px-8 lg:px-16',
-        fullHeight && 'min-h-screen',
+        fullHeight && 'min-h-[100dvh] -mt-[64px] pt-[80px]', // Adjust for navbar height
         className
       )}
       {...props}
