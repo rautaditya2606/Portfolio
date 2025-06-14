@@ -4,7 +4,23 @@ import { Section } from '@/components/ui/Section'
 import { m } from 'framer-motion'
 import { useState } from 'react'
 
-const achievements = [
+interface Achievement {
+    title: string;
+    description: string;
+    icon: string;
+    category: string;
+    date: string;
+    link: string;
+}
+
+interface TimelineItem {
+    year: string;
+    title: string;
+    description: string;
+    icon: string;
+}
+
+const achievements: Achievement[] = [
 	{
 		title: '2nd Place - IIC Udaan 2.0',
 		description:
@@ -159,7 +175,7 @@ const interests = [
 
 export const About = () => {
 	const [activeTab, setActiveTab] = useState('overview')
-	const [selectedAchievement, setSelectedAchievement] = useState(null)
+	const [selectedAchievement, setSelectedAchievement] = useState<Achievement | null>(null)
 
 	const containerVariants = {
 		hidden: { opacity: 0 },
@@ -180,6 +196,43 @@ export const About = () => {
 				duration: 0.5,
 			},
 		},
+	}
+
+	const TimelineItem = ({ item, index }: { item: TimelineItem; index: number }) => {
+		return (
+			<m.div
+				initial={{ opacity: 0, y: 20 }}
+				animate={{ opacity: 1, y: 0 }}
+				transition={{ delay: index * 0.2 }}
+				className={`relative flex items-center ${
+					index % 2 === 0 ? 'justify-start' : 'justify-end'
+				} mb-24`}
+			>
+				{/* Content container */}
+				<div className={`w-5/12 relative ${index % 2 === 0 ? 'text-right pr-8' : 'text-left pl-8'}`}>
+					<div className="bg-light-card dark:bg-dark-card rounded-xl p-4 border border-light-border dark:border-dark-border shadow-lg hover:shadow-xl transition-shadow duration-300">
+						<div className="flex items-center gap-2 mb-2">
+							<span className="text-xl">{item.icon}</span>
+							<span className="font-bold text-blue-600 dark:text-blue-400">{item.year}</span>
+						</div>
+						<h4 className="font-bold mb-1">{item.title}</h4>
+						<p className="text-sm text-gray-600 dark:text-gray-400">{item.description}</p>
+					</div>
+				</div>
+				
+				{/* Timeline node */}
+				<div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full border-4 border-white dark:border-gray-900 z-10"></div>
+				
+				{/* Horizontal connector line */}
+				<div 
+					className={`absolute top-1/2 -translate-y-1/2 h-0.5 ${
+						index % 2 === 0 
+							? 'left-1/2 w-[calc(25%-1rem)] bg-gradient-to-r from-blue-500 to-transparent' 
+							: 'right-1/2 w-[calc(25%-1rem)] bg-gradient-to-l from-purple-600 to-transparent'
+					}`}
+				></div>
+			</m.div>
+		)
 	}
 
 	return (
@@ -382,29 +435,12 @@ export const About = () => {
 					>
 						<h3 className="text-2xl font-bold mb-6 text-center">Journey Timeline</h3>
 						<div className="relative">
-							<div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-primary-500 via-primary-600 to-primary-700 shadow-lg"></div>
+							{/* Main vertical line */}
+							<div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-blue-500 to-purple-600"></div>
+							
+							{/* Timeline items */}
 							{timeline.map((item, index) => (
-								<m.div
-									key={item.year}
-									initial={{ opacity: 0, y: 20 }}
-									animate={{ opacity: 1, y: 0 }}
-									transition={{ delay: index * 0.2 }}
-									className={`relative flex items-center ${
-										index % 2 === 0 ? 'justify-start' : 'justify-end'
-									} mb-8`}
-								>
-									<div className={`w-5/12 ${index % 2 === 0 ? 'text-right pr-8' : 'text-left pl-8'}`}>
-										<div className="bg-light-card dark:bg-dark-card rounded-xl p-4 border border-light-border dark:border-dark-border shadow-lg">
-											<div className="flex items-center gap-2 mb-2">
-												<span className="text-xl">{item.icon}</span>
-												<span className="font-bold text-primary-600 dark:text-primary-400">{item.year}</span>
-											</div>
-											<h4 className="font-bold mb-1">{item.title}</h4>
-											<p className="text-sm text-gray-600 dark:text-gray-400">{item.description}</p>
-										</div>
-									</div>
-									<div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gradient-to-r from-primary-500 via-primary-600 to-primary-700 rounded-full border-2 border-white dark:border-gray-900 shadow-lg"></div>
-								</m.div>
+								<TimelineItem key={item.year} item={item} index={index} />
 							))}
 						</div>
 					</m.div>
