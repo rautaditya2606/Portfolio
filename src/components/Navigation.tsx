@@ -40,25 +40,25 @@ export const Navigation = () => {
 
         <button
           onClick={(e) => toggleTheme(e)}
-          className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+          className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors relative overflow-hidden"
           aria-label="Toggle theme"
         >
-          <m.div
-            key={theme}
-            initial={{ rotate: -30, opacity: 0 }}
-            animate={{ rotate: 0, opacity: 1 }}
-            exit={{ rotate: 30, opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="relative w-5 h-5 text-gray-800 dark:text-gray-200"
-          >
-            <AnimatePresence mode="wait">
+          <AnimatePresence mode="wait">
+            <m.div
+              key={theme}
+              initial={{ y: -20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: 20, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="relative w-5 h-5 text-gray-800 dark:text-gray-200"
+            >
               {theme === 'dark' ? (
                 <SunIcon key="sun" className="w-5 h-5" />
               ) : (
                 <MoonIcon key="moon" className="w-5 h-5" />
               )}
-            </AnimatePresence>
-          </m.div>
+            </m.div>
+          </AnimatePresence>
         </button>
       </nav>
     </header>
