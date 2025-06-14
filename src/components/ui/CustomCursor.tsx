@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { m, useMotionValue, useSpring } from 'framer-motion'
+import { m, useMotionValue, useSpring, useTransform } from 'framer-motion'
 
 export const CustomCursor = () => {
   const [isVisible, setIsVisible] = useState(false)
@@ -12,10 +12,14 @@ export const CustomCursor = () => {
   const cursorXSpring = useSpring(cursorX, springConfig)
   const cursorYSpring = useSpring(cursorY, springConfig)
 
+  // Transform the cursor position to be centered
+  const transformedX = useTransform(cursorXSpring, (x) => x - 16) // Center horizontally
+  const transformedY = useTransform(cursorYSpring, (y) => y + 47) // Center vertically
+
   useEffect(() => {
     const moveCursor = (e: MouseEvent) => {
-      cursorX.set(e.clientX - 16)
-      cursorY.set(e.clientY - 16)
+      cursorX.set(e.clientX)
+      cursorY.set(e.clientY)
     }
 
     const handleMouseEnter = () => setIsVisible(true)
@@ -41,8 +45,8 @@ export const CustomCursor = () => {
       }}
       transition={{ duration: 0.2 }}
       style={{
-        x: cursorXSpring,
-        y: cursorYSpring,
+        x: transformedX,
+        y: transformedY,
       }}
     >
       <div className="w-8 h-8 bg-white rounded-full" />

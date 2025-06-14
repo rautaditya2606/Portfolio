@@ -32,12 +32,13 @@ export const Section = ({ children, className, fullHeight = false, ...props }: S
       variants={variants}
       className={cn(
         'w-full px-4 py-16 md:px-8 lg:px-16',
-        fullHeight && 'min-h-[100dvh] -mt-[64px] pt-[80px]', // Adjust for navbar height
+        fullHeight && 'h-[100dvh] flex flex-col',
         className
       )}
+      style={fullHeight ? { marginTop: 'calc(-1 * var(--navbar-height, 64px))', paddingTop: 'var(--navbar-height, 64px)' } : undefined}
       {...props}
     >
-      <div className="mx-auto max-w-7xl">
+      <div className={cn("mx-auto max-w-7xl", fullHeight && "flex-grow flex flex-col justify-center")}>
         {children}
       </div>
     </m.section>
