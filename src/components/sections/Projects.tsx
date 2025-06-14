@@ -7,74 +7,63 @@ import { useEffect, useRef, useCallback } from 'react'
 
 const projects = [
 	{
-		name: 'NPSP Search Platform',
-		type: 'Government Property Data Platform',
-		achievement: '🏆 National Competition Winner',
-		techStack: ['Next.js', 'TypeScript', 'Prisma', 'REST API', 'PostgreSQL'],
-		description: 
-			'A unified property search platform that streamlines government property data access across multiple databases.',
+		name: 'NPSP',
+		type: 'Unified Property Search Platform',
+		description: 'Full‑stack Express.js API designed to integrate multiple property data sources in India (DLR, DORSI, CERSAI, MCA21). Won 2nd place in the IIC Udaan 2.0 hackathon with this innovative solution.',
+		techStack: ['Express.js', 'MongoDB', 'i18n', 'REST API', 'Jest'],
 		highlights: [
-			'Built high-performance REST APIs with 500k+ daily requests',
-			'Implemented real-time data syncing across 4 government databases',
-			'Reduced search time from minutes to seconds',
+			'Unified JSON schema for disparate land, urban, corporate datasets',
+			'REST endpoints for property search by ID, registration, or combined query',
+			'Locale support via i18n',
+			'Robust error handling and mock APIs for testing',
 		],
-		deployedUrl: 'https://npsp.example.com',
+		achievement: '🏆 2nd Place in IIC Udaan 2.0 Hackathon',
+		deployedUrl: 'javascript:void(0)',
 		featured: true,
 	},
 	{
 		name: 'NestNow',
-		type: 'Real Estate Platform',
-		achievement: '💼 Featured on ProductHunt',
-		techStack: ['React', 'Node.js', 'MongoDB', 'WebSocket', 'AWS'],
-		description:
-			'Modern property rental platform with real-time chat, virtual tours, and AI-powered recommendations.',
+		type: 'Luxury Rental Marketplace',
+		description: 'A curated property listing platform tailored to high-end rentals. Project led to multiple internship opportunities, demonstrating strong full-stack development capabilities.',
+		techStack: ['MongoDB', 'EJS', 'Bootstrap', 'Node.js', 'Express.js'],
 		highlights: [
-			'Implemented real-time messaging with WebSocket',
-			'Built virtual tour feature with ThreeJS',
-			'Integrated AI for property recommendations',
+			'User/host authentication and role-based listing management',
+			'Dynamic search and filter options (price, location, property type)',
+			'Mobile‑friendly UI built with EJS and Bootstrap',
+			'Data seeding scripts for scalable initialization'
 		],
-		deployedUrl: 'https://nestnow.example.com',
+		achievement: '💼 Secured Multiple Internship Offers',
+		deployedUrl: 'javascript:void(0)',
 		featured: true,
 	},
 	{
-		name: 'DevConnect',
-		type: 'Developer Community Platform',
-		techStack: ['Vue.js', 'Firebase', 'TailwindCSS', 'WebRTC'],
-		description:
-			'A platform for developers to collaborate, share projects, and participate in code reviews.',
+		name: 'lib',
+		type: 'Library Management System',
+		description: 'A MongoDB‑powered system for college libraries with comprehensive feature coverage.',
+		techStack: ['MongoDB', 'Express.js', 'Helmet', 'QR Code', 'Node.js'],
 		highlights: [
-			'Built real-time code collaboration feature',
-			'Implemented peer-to-peer video calls',
-			'Created markdown-based blog system',
+			'Role‑based access (librarian, student)',
+			'Book actions: issue, return, renew, search, with QR-code support',
+			'Automated overdue reminders and usage dashboards',
+			'Security: Helmet, rate-limiting, session management'
 		],
 		deployedUrl: 'javascript:void(0)',
+		featured: true,
 	},
 	{
-		name: 'CodeSync',
-		type: 'Real-time Code Editor',
-		techStack: ['React', 'Socket.io', 'Express', 'MongoDB'],
-		description:
-			'Collaborative code editor with real-time syncing, multiple language support, and instant preview.',
+		name: 'haven',
+		type: 'Roommate Matching SPA',
+		description: 'A visually driven, HTML/CSS single-page application for flat/roommate matching.',
+		techStack: ['HTML5', 'CSS3', 'JavaScript', 'Bootstrap', 'Responsive Design'],
 		highlights: [
-			'Implemented OT algorithm for real-time sync',
-			'Built compiler integration for 10+ languages',
-			'Added live preview for web projects',
+			'Profile-based roommate pairing with lifestyle preferences',
+			'Responsive, modern design with high visual fidelity',
+			'Emphasizes community and local engagement through UX and copy',
+			'Landing page prototype for co-living marketplaces'
 		],
+		achievement: '🏠 Modern UX Design',
 		deployedUrl: 'javascript:void(0)',
-	},
-	{
-		name: 'DataViz Pro',
-		type: 'Data Visualization Tool',
-		techStack: ['D3.js', 'React', 'Node.js', 'PostgreSQL'],
-		description:
-			'Interactive data visualization platform supporting multiple chart types and real-time data.',
-		highlights: [
-			'Created 20+ customizable chart components',
-			'Built CSV/JSON import system',
-			'Implemented real-time data updates',
-		],
-		deployedUrl: 'javascript:void(0)',
-	},
+	}
 ]
 
 export const Projects = () => {

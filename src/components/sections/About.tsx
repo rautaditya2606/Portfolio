@@ -248,7 +248,7 @@ export const About = () => {
 				<div className="text-center max-w-4xl mx-auto">
 					<m.h2 
 						variants={itemVariants}
-						className="text-4xl font-bold mb-6 bg-gradient-to-r from-primary-500 to-primary-700 bg-clip-text text-transparent"
+						className="text-4xl font-bold mb-6 bg-gradient-to-r from-primary-500 to-primary-700 bg-clip-text "
 					>
 						About Me
 					</m.h2>
@@ -272,7 +272,7 @@ export const About = () => {
 								onClick={() => setActiveTab(tab)}
 								className={`px-6 py-2 rounded-full font-medium transition-all ${
 									activeTab === tab
-										? 'bg-primary-600 text-white shadow-lg'
+										? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg'
 										: 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
 								}`}
 							>
