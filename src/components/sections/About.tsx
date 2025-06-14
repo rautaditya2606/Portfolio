@@ -159,10 +159,10 @@ const timeline = [
 ]
 
 const stats = [
+	{ label: 'Total Internships', value: '2', icon: '📊' },
+	{ label: 'Github Repos', value: '21', icon: '💻' },
 	{ label: 'Projects Completed', value: '10+', icon: '🚀' },
 	{ label: 'LinkedIn Connections', value: '900+', icon: '🤝' },
-	{ label: 'Current CGPA', value: '8.45', icon: '📊' },
-	{ label: 'Years of Coding', value: '2+', icon: '💻' },
 ]
 
 const interests = [
@@ -477,7 +477,7 @@ export const About = () => {
 											initial={{ width: 0 }}
 											animate={{ width: `${item.progress}%` }}
 											transition={{ delay: index * 0.1 + 0.5, duration: 1 }}
-											className="bg-gradient-to-r from-primary-500 to-primary-700 h-2 rounded-full"
+											className="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full"
 										></m.div>
 									</div>
 								</m.div>
