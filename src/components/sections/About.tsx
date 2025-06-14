@@ -227,8 +227,8 @@ export const About = () => {
 				<div 
 					className={`absolute top-1/2 -translate-y-1/2 h-0.5 ${
 						index % 2 === 0 
-							? 'left-1/2 w-[calc(25%-1rem)] bg-gradient-to-r from-blue-500 to-transparent' 
-							: 'right-1/2 w-[calc(25%-1rem)] bg-gradient-to-l from-purple-600 to-transparent'
+							? 'right-1/2 w-[6.625rem] bg-gradient-to-l from-purple-600 to-transparent' 
+							: 'left-1/2 w-[6.625rem] bg-gradient-to-r from-blue-500 to-transparent'
 					}`}
 				></div>
 			</m.div>
@@ -416,7 +416,7 @@ export const About = () => {
 											initial={{ width: 0 }}
 											animate={{ width: `${skill.level}%` }}
 											transition={{ delay: index * 0.1 + 0.5, duration: 1 }}
-											className="bg-gradient-to-r from-primary-500 to-primary-700 h-2 rounded-full"
+											className="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full"
 										></m.div>
 									</div>
 									<div className="text-right text-sm text-gray-500 mt-1">{skill.level}%</div>
