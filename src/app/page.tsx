@@ -1,6 +1,6 @@
 'use client'
 
-import { GradientText } from '@/components/ui/GradientText'
+import { AnimatedGradientText } from '@/components/ui/AnimatedGradientText'
 import { Section } from '@/components/ui/Section'
 import { About } from '@/components/sections/About'
 import { Skills } from '@/components/sections/Skills'
@@ -33,7 +33,8 @@ export default function Home() {
                   <div className="flex items-center gap-3 min-w-[150px]">
                     <AnimatedGreeting />,{' '}
                   </div>
-                  <GradientText>I&apos;m Aditya</GradientText>
+                  <span>I&apos;m </span>
+                  <AnimatedGradientText text="Aditya" className="ml-2" />
                 </h1>
               </m.div>
             </div>

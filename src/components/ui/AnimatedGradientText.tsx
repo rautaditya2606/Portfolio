@@ -6,15 +6,6 @@ type AnimatedGradientTextProps = {
 }
 
 export const AnimatedGradientText = ({ text, className = '' }: AnimatedGradientTextProps) => {
-  const gradientStyle = {
-    background: 'linear-gradient(-45deg, #3b82f6, #06b6d4, #6366f1, #8b5cf6)',
-    backgroundSize: '200% 200%',
-    animation: 'gradient 4s ease infinite',
-    WebkitBackgroundClip: 'text',
-    WebkitTextFillColor: 'transparent',
-    backgroundClip: 'text',
-    display: 'inline-block'
-  }
 
   return (
     <>
@@ -24,8 +15,28 @@ export const AnimatedGradientText = ({ text, className = '' }: AnimatedGradientT
           50% { background-position: 100% 50%; }
           100% { background-position: 0% 50%; }
         }
+        
+        .gradient-text {
+          background-image: linear-gradient(
+            -45deg,
+            #4f46e5,
+            #06b6d4,
+            #3b82f6,
+            #ec4899,
+            #8b5cf6,
+            #06b6d4,
+            #14b8a6,
+            #4f46e5
+          );
+          background-size: 400% 400%;
+          animation: gradient 6s ease infinite;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          color: transparent;
+        }
       `}</style>
-      <span style={gradientStyle} className={className}>
+      <span className={`gradient-text ${className}`}>
         {text}
       </span>
     </>
