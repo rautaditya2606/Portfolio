@@ -14,7 +14,11 @@ const greetings = [
 	"Ciao",
 ];
 
-export const AnimatedGreeting = () => {
+interface AnimatedGreetingProps {
+	className?: string;
+}
+
+export const AnimatedGreeting = ({ className = "" }: AnimatedGreetingProps) => {
 	const [currentIndex, setCurrentIndex] = useState(0);
 
 	useEffect(() => {
@@ -45,7 +49,7 @@ export const AnimatedGreeting = () => {
 					y: { type: "spring", stiffness: 300, damping: 25, duration: 0.4 },
 					opacity: { duration: 0.4 },
 				}}
-				className="inline-block text-gray-800 dark:text-gray-200"
+				className={`inline-block text-gray-800 dark:text-gray-200 ${className}`}
 			>
 				{greetings[currentIndex]}
 			</m.span>

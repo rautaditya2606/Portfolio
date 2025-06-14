@@ -1,6 +1,6 @@
 'use client'
 
-import { m } from 'framer-motion'
+import { m, AnimatePresence } from 'framer-motion'
 import { useTheme } from '@/providers/ThemeProvider'
 import { MoonIcon, SunIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
@@ -39,26 +39,25 @@ export const Navigation = () => {
         </div>
 
         <button
-          onClick={toggleTheme}
+          onClick={(e) => toggleTheme(e)}
           className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
           aria-label="Toggle theme"
         >
           <m.div
-            initial={false}
-            animate={{
-              scale: [0.8, 1],
-              rotate: [0, 360],
-            }}
-            transition={{
-              duration: 0.3,
-              ease: 'easeInOut',
-            }}
+            key={theme}
+            initial={{ rotate: -30, opacity: 0 }}
+            animate={{ rotate: 0, opacity: 1 }}
+            exit={{ rotate: 30, opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="relative w-5 h-5 text-gray-800 dark:text-gray-200"
           >
-            {theme === 'dark' ? (
-              <SunIcon className="w-5 h-5" />
-            ) : (
-              <MoonIcon className="w-5 h-5" />
-            )}
+            <AnimatePresence mode="wait">
+              {theme === 'dark' ? (
+                <SunIcon key="sun" className="w-5 h-5" />
+              ) : (
+                <MoonIcon key="moon" className="w-5 h-5" />
+              )}
+            </AnimatePresence>
           </m.div>
         </button>
       </nav>

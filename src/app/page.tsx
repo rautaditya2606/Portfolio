@@ -29,12 +29,17 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.2 }}
               >
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold flex items-center">
-                  <div className="flex items-center gap-3 min-w-[150px]">
-                    <AnimatedGreeting />,{' '}
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold relative flex flex-col items-center">
+                  <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-0">
+                    <div className="w-full sm:w-[200px] md:w-[250px] lg:w-[300px] flex justify-center sm:justify-end">
+                      <AnimatedGreeting className="text-center sm:text-right" />
+                      <span className="ml-2">,</span>
+                    </div>
+                    <div className="sm:ml-3 flex items-center justify-center whitespace-nowrap">
+                      <span>I&apos;m</span>
+                      <AnimatedGradientText text="Aditya" className="ml-2" />
+                    </div>
                   </div>
-                  <span>I&apos;m </span>
-                  <AnimatedGradientText text="Aditya" className="ml-2" />
                 </h1>
               </m.div>
             </div>

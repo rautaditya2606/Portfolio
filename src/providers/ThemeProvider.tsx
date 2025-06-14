@@ -6,13 +6,15 @@ type Theme = 'dark' | 'light'
 
 interface ThemeContextType {
   theme: Theme
-  toggleTheme: () => void
+  toggleTheme: (e?: React.MouseEvent) => void
+  ripplePosition: { x: number; y: number } | null
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>('dark')
+  const [ripplePosition, setRipplePosition] = useState<{ x: number; y: number } | null>(null)
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme') as Theme
@@ -26,15 +28,20 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     }
   }, [])
 
-  const toggleTheme = () => {
+  const toggleTheme = (e?: React.MouseEvent) => {
     const newTheme = theme === 'dark' ? 'light' : 'dark'
     setTheme(newTheme)
     localStorage.setItem('theme', newTheme)
     document.documentElement.classList.toggle('dark', newTheme === 'dark')
+    
+    if (e) {
+      setRipplePosition({ x: e.clientX, y: e.clientY })
+      setTimeout(() => setRipplePosition(null), 1000)
+    }
   }
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme, ripplePosition }}>
       {children}
     </ThemeContext.Provider>
   )
