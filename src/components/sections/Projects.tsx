@@ -2,7 +2,6 @@
 
 import { Section } from '@/components/ui/Section'
 import { m } from 'framer-motion'
-import Link from 'next/link'
 import { useEffect, useRef, useCallback } from 'react'
 
 const projects = [
