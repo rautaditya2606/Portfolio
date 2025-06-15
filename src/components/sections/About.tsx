@@ -177,350 +177,403 @@ export const About = () => {
 	const [activeTab, setActiveTab] = useState('overview')
 	const [selectedAchievement, setSelectedAchievement] = useState<Achievement | null>(null)
 
-	const containerVariants = {
-		hidden: { opacity: 0 },
-		visible: {
-			opacity: 1,
-			transition: {
-				staggerChildren: 0.1,
-			},
-		},
-	}
-
-	const itemVariants = {
-		hidden: { opacity: 0, y: 20 },
-		visible: {
-			opacity: 1,
-			y: 0,
-			transition: {
-				duration: 0.5,
-			},
-		},
-	}
-
 	const TimelineItem = ({ item, index }: { item: TimelineItem; index: number }) => {
 		return (
 			<m.div
 				initial={{ opacity: 0, y: 20 }}
-				animate={{ opacity: 1, y: 0 }}
-				transition={{ delay: index * 0.2 }}
+				whileInView={{ opacity: 1, y: 0 }}
+				viewport={{ once: true, margin: "-100px" }}
+				transition={{ 
+					delay: index * 0.2,
+					type: "spring",
+					stiffness: 100,
+					damping: 20
+				}}
 				className={`relative flex items-center ${
 					index % 2 === 0 ? 'justify-start' : 'justify-end'
 				} mb-24`}
 			>
 				{/* Content container */}
 				<div className={`w-5/12 relative ${index % 2 === 0 ? 'text-right pr-8' : 'text-left pl-8'}`}>
-					<div className="bg-light-card dark:bg-dark-card rounded-xl p-4 border border-light-border dark:border-dark-border shadow-lg hover:shadow-xl transition-shadow duration-300">
+					<m.div 
+						initial={{ opacity: 0, scale: 0.95 }}
+						whileInView={{ opacity: 1, scale: 1 }}
+						viewport={{ once: true }}
+						transition={{
+							type: "spring",
+							stiffness: 100,
+							damping: 20,
+							delay: index * 0.1
+						}}
+						className="bg-light-card dark:bg-dark-card rounded-xl p-4 border border-light-border dark:border-dark-border shadow-lg hover:shadow-xl transition-all duration-300"
+					>
 						<div className="flex items-center gap-2 mb-2">
 							<span className="text-xl">{item.icon}</span>
 							<span className="font-bold text-blue-600 dark:text-blue-400">{item.year}</span>
 						</div>
 						<h4 className="font-bold mb-1">{item.title}</h4>
 						<p className="text-sm text-gray-600 dark:text-gray-400">{item.description}</p>
-					</div>
+					</m.div>
 				</div>
 				
 				{/* Timeline node */}
-				<div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full border-4 border-white dark:border-gray-900 z-10"></div>
+				<m.div 
+					initial={{ scale: 0 }}
+					whileInView={{ scale: 1 }}
+					viewport={{ once: true }}
+					transition={{
+						type: "spring",
+						stiffness: 200,
+						damping: 20,
+						delay: index * 0.2
+					}}
+					className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full border-4 border-white dark:border-gray-900 z-10"
+				/>
 				
 				{/* Horizontal connector line */}
-				<div 
-					className={`absolute top-1/2 -translate-y-1/2 h-0.5 ${
+				<m.div 
+					initial={{ scaleX: 0 }}
+					whileInView={{ scaleX: 1 }}
+					viewport={{ once: true }}
+					transition={{
+						type: "spring",
+						stiffness: 100,
+						damping: 20,
+						delay: index * 0.3
+					}}
+					className={`absolute top-1/2 -translate-y-1/2 h-0.5 origin-left ${
 						index % 2 === 0 
 							? 'right-1/2 w-[6.625rem] bg-gradient-to-l from-purple-600 to-transparent' 
 							: 'left-1/2 w-[6.625rem] bg-gradient-to-r from-blue-500 to-transparent'
 					}`}
-				></div>
+				/>
 			</m.div>
 		)
 	}
 
 	return (
 		<Section id="about" className="py-20">
-			<m.div
-				initial="hidden"
-				whileInView="visible"
-				variants={containerVariants}
-				viewport={{ once: true }}
-				className="space-y-16"
-			>
-				{/* Header with Navigation */}
-				<div className="text-center max-w-4xl mx-auto">
-					<m.h2 
-						variants={itemVariants}
-						className="text-4xl font-bold mb-6 bg-gradient-to-r from-primary-500 to-primary-700 bg-clip-text "
-					>
-						About Me
-					</m.h2>
-					<m.p 
-						variants={itemVariants}
-						className="text-lg text-gray-600 dark:text-gray-400 mb-8"
-					>
-						First-year Computer Science student specializing in Applied Machine Learning, 
-						MLOps, and Data Analytics. Combining technical excellence with physical discipline 
-						to build impactful solutions.
-					</m.p>
-					
-					{/* Tab Navigation */}
-					<m.div 
-						variants={itemVariants}
-						className="flex flex-wrap justify-center gap-2 mb-8"
-					>
-						{['overview', 'skills', 'timeline', 'personal'].map((tab) => (
-							<button
-								key={tab}
-								onClick={() => setActiveTab(tab)}
-								className={`px-6 py-2 rounded-full font-medium transition-all ${
-									activeTab === tab
-										? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg'
-										: 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
-								}`}
-							>
-								{tab.charAt(0).toUpperCase() + tab.slice(1)}
-							</button>
-						))}
-					</m.div>
-				</div>
-
-				{/* Quick Stats */}
-				<m.div variants={itemVariants} className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-					{stats.map((stat) => (
-						<div
-							key={stat.label}
-							className="text-center p-4 bg-light-card dark:bg-dark-card rounded-xl border border-light-border dark:border-dark-border"
+			<div>
+				<m.div
+					initial={{ opacity: 0, y: 50 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true, margin: "-100px" }}
+					transition={{ type: "spring", stiffness: 100, damping: 20 }}
+					className="space-y-16"
+				>
+					{/* Header with Navigation */}
+					<div className="text-center max-w-4xl mx-auto">
+						<m.h2 
+							initial={{ opacity: 0, y: 20 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							viewport={{ once: true }}
+							transition={{ type: "spring", stiffness: 100, damping: 20 }}
+							className="text-4xl font-bold mb-6 bg-gradient-to-r from-primary-500 to-primary-700 bg-clip-text text-transparent"
 						>
-							<div className="text-2xl mb-2">{stat.icon}</div>
-							<div className="text-2xl font-bold text-primary-600 dark:text-primary-400">{stat.value}</div>
-							<div className="text-sm text-gray-600 dark:text-gray-400">{stat.label}</div>
-						</div>
-					))}
-				</m.div>
-
-				{/* Tab Content */}
-				{activeTab === 'overview' && (
-					<m.div
-						initial={{ opacity: 0, x: 20 }}
-						animate={{ opacity: 1, x: 0 }}
-						transition={{ duration: 0.5 }}
-						className="space-y-12"
-					>
-						{/* Achievements with Modal */}
-						<div>
-							<h3 className="text-2xl font-bold mb-6 text-center">Key Achievements</h3>
-							<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-								{achievements.map((achievement, index) => (
-									<m.div
-										key={achievement.title}
-										initial={{ opacity: 0, y: 20 }}
-										animate={{ opacity: 1, y: 0 }}
-										transition={{ delay: index * 0.1 }}
-										whileHover={{ scale: 1.05, rotateY: 5 }}
-										className="bg-light-card dark:bg-dark-card rounded-xl p-6 border border-light-border dark:border-dark-border cursor-pointer hover:shadow-lg transition-all"
-										onClick={() => setSelectedAchievement(achievement)}
-									>
-										<div className="flex justify-between items-start mb-3">
-											<span className="text-2xl">{achievement.icon}</span>
-											<span className="text-xs bg-primary-100 dark:bg-primary-900/50 text-primary-800 dark:text-primary-200 px-2 py-1 rounded-full">
-												{achievement.date}
-											</span>
-										</div>
-										<h4 className="font-bold mb-2">{achievement.title}</h4>
-										<p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">
-											{achievement.description}
-										</p>
-									</m.div>
-								))}
-							</div>
-						</div>
-
-						{/* Focus Areas with Gradients */}
-						<div>
-							<h3 className="text-2xl font-bold mb-6 text-center">Professional Focus</h3>
-							<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-								{focusAreas.map((area, index) => (
-									<m.div
-										key={area.title}
-										initial={{ opacity: 0, y: 20 }}
-										animate={{ opacity: 1, y: 0 }}
-										transition={{ delay: index * 0.1 }}
-										className="relative overflow-hidden rounded-xl"
-									>
-										<div className={`absolute inset-0 ${area.color} opacity-10`}></div>
-										<div className="relative bg-light-card dark:bg-dark-card rounded-xl p-6 border border-light-border dark:border-dark-border">
-											<h4 className="font-bold mb-4 text-lg">{area.title}</h4>
-											<ul className="space-y-3">
-												{area.items.map((item, itemIndex) => (
-													<m.li
-														key={item}
-														initial={{ opacity: 0, x: -20 }}
-														animate={{ opacity: 1, x: 0 }}
-														transition={{ delay: (index * 0.1) + (itemIndex * 0.05) }}
-														className="text-sm text-gray-600 dark:text-gray-400 flex items-center gap-3"
-													>
-														<span className="w-2 h-2 bg-gradient-to-r from-primary-500 to-primary-700 rounded-full"></span>
-														{item}
-													</m.li>
-												))}
-											</ul>
-										</div>
-									</m.div>
-								))}
-							</div>
-						</div>
-
-						{/* Interests Tags */}
-						<div>
-							<h3 className="text-2xl font-bold mb-6 text-center">Interests & Passions</h3>
-							<div className="flex flex-wrap justify-center gap-4">
-								{interests.map((interest, index) => (
-									<m.div
-										key={interest.name}
-										initial={{ opacity: 0, scale: 0.8 }}
-										animate={{ opacity: 1, scale: 1 }}
-										transition={{ delay: index * 0.1 }}
-										whileHover={{ scale: 1.1 }}
-										className="bg-gradient-to-r from-primary-500 to-primary-700 text-white px-4 py-2 rounded-full flex items-center gap-2 shadow-lg"
-									>
-										<span>{interest.icon}</span>
-										<span className="font-medium">{interest.name}</span>
-									</m.div>
-								))}
-							</div>
-						</div>
-					</m.div>
-				)}
-
-				{activeTab === 'skills' && (
-					<m.div
-						initial={{ opacity: 0, x: 20 }}
-						animate={{ opacity: 1, x: 0 }}
-						transition={{ duration: 0.5 }}
-						className="space-y-8"
-					>
-						<h3 className="text-2xl font-bold mb-6 text-center">Technical Skills</h3>
-						<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-							{skills.map((skill, index) => (
-								<m.div
-									key={skill.name}
-									initial={{ opacity: 0, x: -20 }}
-									animate={{ opacity: 1, x: 0 }}
-									transition={{ delay: index * 0.1 }}
-									className="bg-light-card dark:bg-dark-card rounded-xl p-6 border border-light-border dark:border-dark-border"
-								>
-									<div className="flex justify-between items-center mb-2">
-										<span className="font-medium">{skill.name}</span>
-										<span className="text-sm text-gray-500">{skill.category}</span>
-									</div>
-									<div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-										<m.div
-											initial={{ width: 0 }}
-											animate={{ width: `${skill.level}%` }}
-											transition={{ delay: index * 0.1 + 0.5, duration: 1 }}
-											className="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full"
-										></m.div>
-									</div>
-									<div className="text-right text-sm text-gray-500 mt-1">{skill.level}%</div>
-								</m.div>
-							))}
-						</div>
-					</m.div>
-				)}
-
-				{activeTab === 'timeline' && (
-					<m.div
-						initial={{ opacity: 0, x: 20 }}
-						animate={{ opacity: 1, x: 0 }}
-						transition={{ duration: 0.5 }}
-						className="space-y-8"
-					>
-						<h3 className="text-2xl font-bold mb-6 text-center">Journey Timeline</h3>
-						<div className="relative">
-							{/* Main vertical line */}
-							<div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-blue-500 to-purple-600"></div>
-							
-							{/* Timeline items */}
-							{timeline.map((item, index) => (
-								<TimelineItem key={item.year} item={item} index={index} />
-							))}
-						</div>
-					</m.div>
-				)}
-
-				{activeTab === 'personal' && (
-					<m.div
-						initial={{ opacity: 0, x: 20 }}
-						animate={{ opacity: 1, x: 0 }}
-						transition={{ duration: 0.5 }}
-						className="space-y-8"
-					>
-						<h3 className="text-2xl font-bold mb-6 text-center">Personal Development</h3>
-						<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-							{personalGrowth.map((item, index) => (
-								<m.div
-									key={item.title}
+							About Me
+						</m.h2>
+						<m.p 
+							initial={{ opacity: 0, y: 20 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							viewport={{ once: true }}
+							transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.1 }}
+							className="text-lg text-gray-600 dark:text-gray-400 mb-8"
+						>
+							First-year Computer Science student specializing in Applied Machine Learning, 
+							MLOps, and Data Analytics. Combining technical excellence with physical discipline 
+							to build impactful solutions.
+						</m.p>
+						
+						{/* Tab Navigation */}
+						<div className="flex flex-wrap justify-center gap-2 mb-8">
+							{['overview', 'skills', 'timeline', 'personal'].map((tab, i) => (
+								<m.button
+									key={tab}
+									onClick={() => setActiveTab(tab)}
 									initial={{ opacity: 0, y: 20 }}
-									animate={{ opacity: 1, y: 0 }}
-									transition={{ delay: index * 0.1 }}
-									className="bg-light-card dark:bg-dark-card rounded-xl p-6 border border-light-border dark:border-dark-border"
+									whileInView={{ opacity: 1, y: 0 }}
+									viewport={{ once: true }}
+									transition={{ 
+										type: "spring",
+										stiffness: 100,
+										damping: 20,
+										delay: i * 0.1 
+									}}
+									whileHover={{ scale: 1.05 }}
+									whileTap={{ scale: 0.95 }}
+									className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
+										activeTab === tab
+											? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg'
+											: 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
+									}`}
 								>
-									<div className="flex items-center justify-between mb-3">
-										<span className="text-2xl">{item.icon}</span>
-										<div className="text-right">
-											<div className="text-sm text-gray-500">{item.metric}</div>
-											<div className="text-lg font-bold text-primary-600 dark:text-primary-400">{item.progress}%</div>
-										</div>
-									</div>
-									<h4 className="font-bold mb-2">{item.title}</h4>
-									<p className="text-sm text-gray-600 dark:text-gray-400 mb-4">{item.description}</p>
-									<div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-										<m.div
-											initial={{ width: 0 }}
-											animate={{ width: `${item.progress}%` }}
-											transition={{ delay: index * 0.1 + 0.5, duration: 1 }}
-											className="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full"
-										></m.div>
-									</div>
-								</m.div>
+									{tab.charAt(0).toUpperCase() + tab.slice(1)}
+								</m.button>
 							))}
 						</div>
-					</m.div>
-				)}
+					</div>
 
-				{/* Achievement Modal */}
-				{selectedAchievement && (
-					<m.div
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
-						onClick={() => setSelectedAchievement(null)}
-					>
-						<m.div
-							initial={{ scale: 0.8, opacity: 0 }}
-							animate={{ scale: 1, opacity: 1 }}
-							className="bg-white dark:bg-gray-800 rounded-xl p-6 max-w-md mx-4 shadow-2xl"
-							onClick={(e) => e.stopPropagation()}
-						>
-							<div className="flex items-center justify-between mb-4">
-								<span className="text-3xl">{selectedAchievement.icon}</span>
-								<button
-									onClick={() => setSelectedAchievement(null)}
-									className="text-gray-500 hover:text-gray-700 text-xl"
+					{/* Quick Stats */}
+					<div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+						{stats.map((stat, i) => (
+							<m.div
+								key={stat.label}
+								initial={{ opacity: 0, y: 20 }}
+								whileInView={{ opacity: 1, y: 0 }}
+								viewport={{ once: true }}
+								transition={{ 
+									type: "spring",
+									stiffness: 100,
+									damping: 20,
+									delay: i * 0.1 
+								}}
+								whileHover={{ scale: 1.05 }}
+								className="text-center p-4 bg-light-card dark:bg-dark-card rounded-xl border border-light-border dark:border-dark-border hover:shadow-lg transition-all"
+							>
+								<m.div 
+									initial={{ scale: 0 }}
+									animate={{ scale: 1 }}
+									transition={{
+										type: "spring",
+										stiffness: 200,
+										damping: 20
+									}}
+									className="text-2xl mb-2"
 								>
-									×
-								</button>
+									{stat.icon}
+								</m.div>
+								<div className="text-2xl font-bold text-primary-600 dark:text-primary-400">{stat.value}</div>
+								<div className="text-sm text-gray-600 dark:text-gray-400">{stat.label}</div>
+							</m.div>
+						))}
+					</div>
+
+					{/* Tab Content */}
+					{activeTab === 'overview' && (
+						<m.div
+							initial={{ opacity: 0, x: 20 }}
+							animate={{ opacity: 1, x: 0 }}
+							transition={{ duration: 0.5 }}
+							className="space-y-12"
+						>
+							{/* Achievements with Modal */}
+							<div>
+								<h3 className="text-2xl font-bold mb-6 text-center">Key Achievements</h3>
+								<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+									{achievements.map((achievement, index) => (
+										<m.div
+											key={achievement.title}
+											initial={{ opacity: 0, y: 20 }}
+											animate={{ opacity: 1, y: 0 }}
+											transition={{ delay: index * 0.1 }}
+											whileHover={{ scale: 1.05, rotateY: 5 }}
+											className="bg-light-card dark:bg-dark-card rounded-xl p-6 border border-light-border dark:border-dark-border cursor-pointer hover:shadow-lg transition-all"
+											onClick={() => setSelectedAchievement(achievement)}
+										>
+											<div className="flex justify-between items-start mb-3">
+												<span className="text-2xl">{achievement.icon}</span>
+												<span className="text-xs bg-primary-100 dark:bg-primary-900/50 text-primary-800 dark:text-primary-200 px-2 py-1 rounded-full">
+													{achievement.date}
+												</span>
+											</div>
+											<h4 className="font-bold mb-2">{achievement.title}</h4>
+											<p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">
+												{achievement.description}
+											</p>
+										</m.div>
+									))}
+								</div>
 							</div>
-							<h3 className="text-xl font-bold mb-2">{selectedAchievement.title}</h3>
-							<p className="text-gray-600 dark:text-gray-400 mb-4">{selectedAchievement.description}</p>
-							<div className="flex justify-between items-center">
-								<span className="text-sm bg-primary-100 dark:bg-primary-900/50 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full">
-									{selectedAchievement.category}
-								</span>
-								<span className="text-sm text-gray-500">{selectedAchievement.date}</span>
+
+							{/* Focus Areas with Gradients */}
+							<div>
+								<h3 className="text-2xl font-bold mb-6 text-center">Professional Focus</h3>
+								<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+									{focusAreas.map((area, index) => (
+										<m.div
+											key={area.title}
+											initial={{ opacity: 0, y: 20 }}
+											animate={{ opacity: 1, y: 0 }}
+											transition={{ delay: index * 0.1 }}
+											className="relative overflow-hidden rounded-xl"
+										>
+											<div className={`absolute inset-0 ${area.color} opacity-10`}></div>
+											<div className="relative bg-light-card dark:bg-dark-card rounded-xl p-6 border border-light-border dark:border-dark-border">
+												<h4 className="font-bold mb-4 text-lg">{area.title}</h4>
+												<ul className="space-y-3">
+													{area.items.map((item, itemIndex) => (
+														<m.li
+															key={item}
+															initial={{ opacity: 0, x: -20 }}
+															animate={{ opacity: 1, x: 0 }}
+															transition={{ delay: (index * 0.1) + (itemIndex * 0.05) }}
+															className="text-sm text-gray-600 dark:text-gray-400 flex items-center gap-3"
+														>
+															<span className="w-2 h-2 bg-gradient-to-r from-primary-500 to-primary-700 rounded-full"></span>
+															{item}
+														</m.li>
+													))}
+												</ul>
+											</div>
+										</m.div>
+									))}
+								</div>
+							</div>
+
+							{/* Interests Tags */}
+							<div>
+								<h3 className="text-2xl font-bold mb-6 text-center">Interests & Passions</h3>
+								<div className="flex flex-wrap justify-center gap-4">
+									{interests.map((interest, index) => (
+										<m.div
+											key={interest.name}
+											initial={{ opacity: 0, scale: 0.8 }}
+											animate={{ opacity: 1, scale: 1 }}
+											transition={{ delay: index * 0.1 }}
+											whileHover={{ scale: 1.1 }}
+											className="bg-gradient-to-r from-primary-500 to-primary-700 text-white px-4 py-2 rounded-full flex items-center gap-2 shadow-lg"
+										>
+											<span>{interest.icon}</span>
+											<span className="font-medium">{interest.name}</span>
+										</m.div>
+									))}
+								</div>
 							</div>
 						</m.div>
-					</m.div>
-				)}
-			</m.div>
+					)}
+
+					{activeTab === 'skills' && (
+						<m.div
+							initial={{ opacity: 0, x: 20 }}
+							animate={{ opacity: 1, x: 0 }}
+							transition={{ duration: 0.5 }}
+							className="space-y-8"
+						>
+							<h3 className="text-2xl font-bold mb-6 text-center">Technical Skills</h3>
+							<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+								{skills.map((skill, index) => (
+									<m.div
+										key={skill.name}
+										initial={{ opacity: 0, x: -20 }}
+										animate={{ opacity: 1, x: 0 }}
+										transition={{ delay: index * 0.1 }}
+										className="bg-light-card dark:bg-dark-card rounded-xl p-6 border border-light-border dark:border-dark-border"
+									>
+										<div className="flex justify-between items-center mb-2">
+											<span className="font-medium">{skill.name}</span>
+											<span className="text-sm text-gray-500">{skill.category}</span>
+										</div>
+										<div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+											<m.div
+												initial={{ width: 0 }}
+												animate={{ width: `${skill.level}%` }}
+												transition={{ delay: index * 0.1 + 0.5, duration: 1 }}
+												className="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full"
+											></m.div>
+										</div>
+										<div className="text-right text-sm text-gray-500 mt-1">{skill.level}%</div>
+									</m.div>
+								))}
+							</div>
+						</m.div>
+					)}
+
+					{activeTab === 'timeline' && (
+						<m.div
+							initial={{ opacity: 0, x: 20 }}
+							animate={{ opacity: 1, x: 0 }}
+							transition={{ duration: 0.5 }}
+							className="space-y-8"
+						>
+							<h3 className="text-2xl font-bold mb-6 text-center">Journey Timeline</h3>
+							<div className="relative">
+								{/* Main vertical line */}
+								<div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-blue-500 to-purple-600"></div>
+								
+								{/* Timeline items */}
+								{timeline.map((item, index) => (
+									<TimelineItem key={item.year} item={item} index={index} />
+								))}
+							</div>
+						</m.div>
+					)}
+
+					{activeTab === 'personal' && (
+						<m.div
+							initial={{ opacity: 0, x: 20 }}
+							animate={{ opacity: 1, x: 0 }}
+							transition={{ duration: 0.5 }}
+							className="space-y-8"
+						>
+							<h3 className="text-2xl font-bold mb-6 text-center">Personal Development</h3>
+							<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+								{personalGrowth.map((item, index) => (
+									<m.div
+										key={item.title}
+										initial={{ opacity: 0, y: 20 }}
+										animate={{ opacity: 1, y: 0 }}
+										transition={{ delay: index * 0.1 }}
+										className="bg-light-card dark:bg-dark-card rounded-xl p-6 border border-light-border dark:border-dark-border"
+									>
+										<div className="flex items-center justify-between mb-3">
+											<span className="text-2xl">{item.icon}</span>
+											<div className="text-right">
+												<div className="text-sm text-gray-500">{item.metric}</div>
+												<div className="text-lg font-bold text-primary-600 dark:text-primary-400">{item.progress}%</div>
+											</div>
+										</div>
+										<h4 className="font-bold mb-2">{item.title}</h4>
+										<p className="text-sm text-gray-600 dark:text-gray-400 mb-4">{item.description}</p>
+										<div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+											<m.div
+												initial={{ width: 0 }}
+												animate={{ width: `${item.progress}%` }}
+												transition={{ delay: index * 0.1 + 0.5, duration: 1 }}
+												className="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full"
+											></m.div>
+										</div>
+									</m.div>
+								))}
+							</div>
+						</m.div>
+					)}
+
+					{/* Achievement Modal */}
+					{selectedAchievement && (
+						<m.div
+							initial={{ opacity: 0 }}
+							animate={{ opacity: 1 }}
+							className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+							onClick={() => setSelectedAchievement(null)}
+						>
+							<m.div
+								initial={{ scale: 0.8, opacity: 0 }}
+								animate={{ scale: 1, opacity: 1 }}
+								className="bg-white dark:bg-gray-800 rounded-xl p-6 max-w-md mx-4 shadow-2xl"
+								onClick={(e) => e.stopPropagation()}
+							>
+								<div className="flex items-center justify-between mb-4">
+									<span className="text-3xl">{selectedAchievement.icon}</span>
+									<button
+										onClick={() => setSelectedAchievement(null)}
+										className="text-gray-500 hover:text-gray-700 text-xl"
+									>
+										×
+									</button>
+								</div>
+								<h3 className="text-xl font-bold mb-2">{selectedAchievement.title}</h3>
+								<p className="text-gray-600 dark:text-gray-400 mb-4">{selectedAchievement.description}</p>
+								<div className="flex justify-between items-center">
+									<span className="text-sm bg-primary-100 dark:bg-primary-900/50 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full">
+										{selectedAchievement.category}
+									</span>
+									<span className="text-sm text-gray-500">{selectedAchievement.date}</span>
+								</div>
+							</m.div>
+						</m.div>
+					)}
+				</m.div>
+			</div>
 		</Section>
 	)
 }
