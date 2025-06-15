@@ -4,7 +4,7 @@ import { AnimatedGradientText } from '@/components/ui/AnimatedGradientText'
 import { Section } from '@/components/ui/Section'
 import { About } from '@/components/sections/About'
 import { Skills } from '@/components/sections/Skills'
-import { Projects } from '@/components/sections/Projects'
+import EnhancedProjects from '@/components/sections/EnhancedProjects'
 import { Contact } from '@/components/sections/Contact'
 import { Obsessions } from '@/components/sections/Obsessions'
 import { AnimatedGreeting } from '@/components/ui/AnimatedGreeting'
@@ -107,7 +107,7 @@ export default function Home() {
 
       <About />
       <Skills />
-      <Projects />
+      <EnhancedProjects />
       <Obsessions />
       <Contact />
     </main>
