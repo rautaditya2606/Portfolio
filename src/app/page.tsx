@@ -9,6 +9,7 @@ import { Contact } from '@/components/sections/Contact'
 import { Obsessions } from '@/components/sections/Obsessions'
 import { AnimatedGreeting } from '@/components/ui/AnimatedGreeting'
 import { m } from 'framer-motion'
+import { handleSmoothScroll } from '@/utils/smoothScroll'
 
 export default function Home() { 
   return (
@@ -65,11 +66,12 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
             >
-              A first-year CS student fascinated by the intersection of{' '}
-              <span className="text-primary-600 dark:text-primary-400">Machine Learning</span>,{' '}
-              <span className="text-primary-600 dark:text-primary-400">MLOps</span>, and{' '}
-              <span className="text-primary-600 dark:text-primary-400">Full-Stack Development</span>. Building
-              intelligent solutions that matter.
+              I&apos;m Aditya, a Computer Science student who&apos;s equally obsessed with{' '}
+              <span className="text-primary-600 dark:text-primary-400">fast machines</span> and{' '}
+              <span className="text-primary-600 dark:text-primary-400">big ideas</span>. I love exploring{' '}
+              <span className="text-primary-600 dark:text-primary-400">military aviation</span>,{' '}
+              <span className="text-primary-600 dark:text-primary-400">Italian bikes</span>, and the{' '}
+              <span className="text-primary-600 dark:text-primary-400">engineering</span> behind them. Whether it&apos;s building something in code or diving deep into how things work, I&apos;m driven by curiosity and a need to create with purpose.
             </m.p>
 
             {/* CTA Buttons with Hover Effects */}
@@ -81,7 +83,8 @@ export default function Home() {
             >
               <a
                 href="#about"
-                className="group relative px-8 py-3 w-48 text-lg font-medium rounded-full overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25"
+                onClick={handleSmoothScroll}
+                className="group relative px-8 py-3 w-48 text-lg font-medium rounded-full overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 cursor-pointer"
               >
                 <div 
                   className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -95,7 +98,8 @@ export default function Home() {
               </a>
               <a
                 href="#skills"
-                className="group relative px-8 py-3 w-48 text-lg font-medium rounded-full overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25"
+                onClick={handleSmoothScroll}
+                className="group relative px-8 py-3 w-48 text-lg font-medium rounded-full overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 cursor-pointer"
               >
                 <div 
                   className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"

@@ -16,13 +16,16 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Aditya - Data Science & ML Portfolio",
+  title: "Aditya // Code",
   description: "First-year CS student focusing on Applied ML, MLOps, and Data Analytics. View my projects, skills, and journey.",
+  icons: {
+    icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>",
+  },
   openGraph: {
-    title: "Aditya - Data Science & ML Portfolio",
+    title: "Aditya // Code",
     description: "First-year CS student focusing on Applied ML, MLOps, and Data Analytics. View my projects, skills, and journey.",
     url: "https://your-portfolio.com",
-    siteName: "Aditya's Portfolio",
+    siteName: "Aditya // Code",
     images: [
       {
         url: "/og-image.png",
@@ -35,7 +38,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aditya - Data Science & ML Portfolio",
+    title: "Aditya // Code",
     description: "First-year CS student focusing on Applied ML, MLOps, and Data Analytics. View my projects, skills, and journey.",
     images: ["/og-image.png"],
   },

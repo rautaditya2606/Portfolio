@@ -5,6 +5,7 @@ import { m, useMotionValue, useSpring, useTransform } from 'framer-motion'
 
 export const CustomCursor = () => {
   const [isVisible, setIsVisible] = useState(false)
+  const [isMobile, setIsMobile] = useState(true) // Start with true to prevent flash
   const cursorX = useMotionValue(-100)
   const cursorY = useMotionValue(-100)
 
@@ -17,6 +18,31 @@ export const CustomCursor = () => {
   const transformedY = useTransform(cursorYSpring, (y) => y + 47) // Center vertically
 
   useEffect(() => {
+    // Check if device is mobile/touch device immediately
+    const checkMobile = () => {
+      // Check for touch capability
+      const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0
+      
+      // Check for mobile user agent
+      const isMobileUA = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+      
+      // Check for small screen (mobile)
+      const isSmallScreen = window.innerWidth <= 768
+      
+      // Check for pointer capability (touch vs mouse)
+      const hasCoarsePointer = window.matchMedia('(pointer: coarse)').matches
+      
+      const shouldHideCursor = hasTouch || isMobileUA || isSmallScreen || hasCoarsePointer
+      
+      setIsMobile(shouldHideCursor)
+    }
+
+    // Check immediately
+    checkMobile()
+
+    // Also check on resize
+    window.addEventListener('resize', checkMobile)
+
     const moveCursor = (e: MouseEvent) => {
       cursorX.set(e.clientX)
       cursorY.set(e.clientY)
@@ -25,16 +51,25 @@ export const CustomCursor = () => {
     const handleMouseEnter = () => setIsVisible(true)
     const handleMouseLeave = () => setIsVisible(false)
 
-    document.addEventListener('mousemove', moveCursor)
-    document.addEventListener('mouseenter', handleMouseEnter)
-    document.addEventListener('mouseleave', handleMouseLeave)
+    // Only add mouse event listeners if not on mobile
+    if (!isMobile) {
+      document.addEventListener('mousemove', moveCursor)
+      document.addEventListener('mouseenter', handleMouseEnter)
+      document.addEventListener('mouseleave', handleMouseLeave)
+    }
 
     return () => {
       document.removeEventListener('mousemove', moveCursor)
       document.removeEventListener('mouseenter', handleMouseEnter)
       document.removeEventListener('mouseleave', handleMouseLeave)
+      window.removeEventListener('resize', checkMobile)
     }
-  }, [cursorX, cursorY])
+  }, [cursorX, cursorY, isMobile])
+
+  // Don't render cursor on mobile devices
+  if (isMobile) {
+    return null
+  }
 
   return (
     <m.div

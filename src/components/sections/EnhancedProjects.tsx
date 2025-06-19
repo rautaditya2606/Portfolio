@@ -45,18 +45,44 @@ const projects = [
 		featured: true
 	},
 	{
-		name: 'Haven',
-		type: 'Roommate Matching Platform',
-		description: 'Modern single-page application for flat and roommate matching with emphasis on user experience and community building.',
-		techStack: ['HTML5', 'CSS3', 'JavaScript', 'Bootstrap', 'Responsive Design'],
+		name: 'Astech',
+		type: 'College Club Website',
+		description: 'A web platform designed for a college club, serving as an informative and interactive website for club members and prospective participants.',
+		techStack: ['EJS', 'CSS', 'JavaScript', 'Node.js', 'Express.js'],
 		highlights: [
-			'Profile-based matching with lifestyle preferences',
-			'Modern, responsive design with high visual fidelity',
-			'Community-focused UX design and copywriting',
-			'Prototype for co-living marketplace solutions'
+			'Dynamic, server-side rendered pages using EJS templates',
+			'Modern and responsive design with CSS',
+			'Interactive front-end elements powered by JavaScript',
+			'Event announcements and club activity updates',
+			'Member information and club details',
+			'Easy navigation for users to explore club activities and join events'
+		]
+	},
+	{
+		name: 'Chat Assistant',
+		type: 'Dynamic Web Wrapper',
+		description: 'A modular web application that dynamically renders content, providing a flexible wrapper for integrating and displaying external or internal web resources.',
+		techStack: ['JavaScript', 'EJS', 'CSS'],
+		highlights: [
+			'Dynamic server-side rendering with EJS templates',
+			'Modular structure for easy customization and integration of web content',
+			'Responsive design using CSS for optimal user experience',
+			'JavaScript-driven interactivity and enhanced client-side functionality',
+			'Suitable for wrapping and displaying various web resources or micro-apps'
 		]
 	}
 ]
+
+// Add a mapping for project name to repo URL
+const projectRepoLinks: Record<string, string> = {
+	'NestNow': 'https://github.com/rautaditya2606/NestNow',
+	'NPSP': 'https://github.com/rautaditya2606/NPSP',
+	'Library Management System': 'https://github.com/rautaditya2606/lib',
+	'Astech': 'https://github.com/rautaditya2606/Astech',
+}
+
+// Add a list of projects that should show confidential message
+const confidentialProjects = ['Chat Assistant']
 
 export default function ProfessionalPortfolio() {
 	const [selectedProject, setSelectedProject] = useState(0)
@@ -74,7 +100,7 @@ export default function ProfessionalPortfolio() {
 	const currentProject = projects[selectedProject] || projects[0]
 
 	return (
-		<section className="min-h-screen py-16 dark:bg-dark-background bg-light-background transition-colors duration-300">
+		<section id="projects" className="min-h-screen py-16 dark:bg-dark-background bg-light-background transition-colors duration-300">
 			<div className="max-w-7xl mx-auto px-6">
 				{/* Header */}
 				<header className="text-center mb-12">
@@ -181,9 +207,24 @@ export default function ProfessionalPortfolio() {
 
 									{/* Action Button */}
 									<div className="flex gap-4">
-										<button className="flex-1 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900">
-											View Source Code
-										</button>
+										{confidentialProjects.includes(currentProject.name) ? (
+											<div className="flex-1 bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 px-6 py-3 rounded-lg font-medium text-center cursor-not-allowed">
+												Can't show source code (confidential)
+											</div>
+										) : projectRepoLinks[currentProject.name] ? (
+											<a
+												href={projectRepoLinks[currentProject.name]}
+												target="_blank"
+												rel="noopener noreferrer"
+												className="flex-1 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 text-center"
+											>
+												View Code
+											</a>
+										) : (
+											<button className="flex-1 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900">
+												View Source Code
+											</button>
+										)}
 									</div>
 								</div>
 							</div>
