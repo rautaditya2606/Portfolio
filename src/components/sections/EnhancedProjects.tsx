@@ -15,9 +15,7 @@ const projects = [
 			'Mock APIs and comprehensive testing suite'
 		],
 		achievement: '2nd Place - IIC Udaan 2.0 Hackathon',
-		featured: true,
-		stats: { lines: '5.2K', commits: '127', contributors: '3' },
-		category: 'Backend'
+		featured: true
 	},
 	{
 		name: 'NestNow',
@@ -30,10 +28,8 @@ const projects = [
 			'Responsive design optimized for mobile devices',
 			'Scalable data seeding and initialization scripts'
 		],
-		achievement: 'Multiple Internship Offers',
-		featured: true,
-		stats: { lines: '8.1K', commits: '203', contributors: '2' },
-		category: 'Full-Stack'
+		achievement: '2 Internship Offers',
+		featured: true
 	},
 	{
 		name: 'Library Management System',
@@ -46,9 +42,7 @@ const projects = [
 			'Automated overdue reminders and usage analytics',
 			'Security implementation with rate limiting and session management'
 		],
-		featured: true,
-		stats: { lines: '4.7K', commits: '89', contributors: '1' },
-		category: 'Backend'
+		featured: true
 	},
 	{
 		name: 'Haven',
@@ -60,23 +54,13 @@ const projects = [
 			'Modern, responsive design with high visual fidelity',
 			'Community-focused UX design and copywriting',
 			'Prototype for co-living marketplace solutions'
-		],
-		achievement: 'UX Design Excellence',
-		stats: { lines: '2.3K', commits: '45', contributors: '1' },
-		category: 'Frontend'
+		]
 	}
 ]
 
-const categories = ['All', 'Backend', 'Full-Stack', 'Frontend']
-
 export default function ProfessionalPortfolio() {
-	const [selectedCategory, setSelectedCategory] = useState('All')
 	const [selectedProject, setSelectedProject] = useState(0)
 	const [isAnimating, setIsAnimating] = useState(false)
-
-	const filteredProjects = selectedCategory === 'All' 
-		? projects 
-		: projects.filter(project => project.category === selectedCategory)
 
 	const handleProjectChange = useCallback((index: number) => {
 		if (isAnimating || index === selectedProject) return
@@ -87,35 +71,11 @@ export default function ProfessionalPortfolio() {
 		setTimeout(() => setIsAnimating(false), 300)
 	}, [selectedProject, isAnimating])
 
-	const handleCategoryChange = (category: string) => {
-		setSelectedCategory(category)
-		setSelectedProject(0)
-	}
-
-	const currentProject = filteredProjects[selectedProject] || filteredProjects[0]
+	const currentProject = projects[selectedProject] || projects[0]
 
 	return (
 		<section className="min-h-screen py-16 dark:bg-dark-background bg-light-background transition-colors duration-300">
 			<div className="max-w-7xl mx-auto px-6">
-				{/* Category Filter */}
-				<div className="flex justify-center mb-12">
-					<div className="inline-flex dark:bg-dark-card bg-white rounded-lg p-1 shadow-sm dark:border-dark-border border">
-						{categories.map((category) => (
-							<button
-								key={category}
-								onClick={() => handleCategoryChange(category)}
-								className={`px-6 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
-									selectedCategory === category
-										? 'bg-blue-600 text-white shadow-sm'
-										: 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800'
-								}`}
-							>
-								{category}
-							</button>
-						))}
-					</div>
-				</div>
-
 				{/* Header */}
 				<header className="text-center mb-12">
 					<h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -132,10 +92,10 @@ export default function ProfessionalPortfolio() {
 					<div className="lg:col-span-1">
 						<div className="dark:bg-dark-card bg-light-card rounded-xl shadow-sm dark:border-dark-border border p-6 sticky top-8">
 							<h3 className="text-lg font-semibold dark:text-white text-gray-900 mb-4">
-								Projects ({filteredProjects.length})
+								Projects ({projects.length})
 							</h3>
 							<nav className="space-y-2">
-								{filteredProjects.map((project, index) => (
+								{projects.map((project, index) => (
 									<button
 										key={project.name}
 										onClick={() => handleProjectChange(index)}
@@ -168,15 +128,6 @@ export default function ProfessionalPortfolio() {
 											</h2>
 											<p className="text-lg text-gray-600 dark:text-gray-300">{currentProject.type}</p>
 										</div>
-										<div className="flex items-center gap-3">
-											<span className={`px-3 py-1 rounded-full text-sm font-medium ${
-												currentProject.category === 'Backend' ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300' :
-												currentProject.category === 'Frontend' ? 'bg-pink-100 dark:bg-pink-900/30 text-pink-800 dark:text-pink-300' :
-												'bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300'
-											}`}>
-												{currentProject.category}
-											</span>
-										</div>
 									</div>
 
 									{/* Achievement Badge */}
@@ -188,19 +139,6 @@ export default function ProfessionalPortfolio() {
 											{currentProject.achievement}
 										</div>
 									)}
-
-									{/* Project Stats */}
-									<div className="flex gap-6 text-sm text-gray-500">
-										<div>
-											<span className="font-medium text-gray-900">{currentProject.stats.lines}</span> lines
-										</div>
-										<div>
-											<span className="font-medium text-gray-900">{currentProject.stats.commits}</span> commits
-										</div>
-										<div>
-											<span className="font-medium text-gray-900">{currentProject.stats.contributors}</span> contributors
-										</div>
-									</div>
 								</div>
 
 								{/* Project Content */}
@@ -262,7 +200,7 @@ export default function ProfessionalPortfolio() {
 						</span>
 						<span>of</span>
 						<span className="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded font-medium">
-							{filteredProjects.length}
+							{projects.length}
 						</span>
 					</div>
 				</div>
