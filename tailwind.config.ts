@@ -38,6 +38,7 @@ const config: Config = {
         'gradient-y': 'gradient-y 15s ease infinite',
         'gradient-xy': 'gradient-xy 15s ease infinite',
         'text-shimmer': 'text-shimmer 2.5s ease-out infinite alternate',
+        'spin-slow': 'spin-slow 3s linear infinite',
       },
       keyframes: {
         'gradient-y': {
@@ -76,6 +77,14 @@ const config: Config = {
           },
           '100%': {
             'background-position': '100% 50%'
+          }
+        },
+        'spin-slow': {
+          '0%': {
+            transform: 'rotate(0deg)'
+          },
+          '100%': {
+            transform: 'rotate(360deg)'
           }
         }
       },

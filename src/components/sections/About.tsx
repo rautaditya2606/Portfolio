@@ -18,6 +18,8 @@ interface TimelineItem {
     title: string;
     description: string;
     icon: string;
+    image?: string;
+    images?: string[]; // For multiple images
 }
 
 const achievements: Achievement[] = [
@@ -137,24 +139,28 @@ const timeline = [
 		title: 'Started Computer Science Journey',
 		description: 'Began B.Tech in Computer Science, achieved 8.45 CGPA in first semester',
 		icon: '🎓',
+		image: '/computer-science-journey.jpeg',
 	},
 	{
 		year: '2025',
 		title: 'IIC Udaan 2.0 Success',
 		description: 'Secured 2nd place in hackathon, demonstrating technical excellence',
 		icon: '🥈',
+		image: '/iic-udaan-success.jpeg',
 	},
 	{
 		year: '2025',
 		title: 'Industry Collaborations',
 		description: 'Secured internships and partnerships with startups',
 		icon: '🤝',
+		images: ['/industry-collaboration.jpeg', '/industry-collaboration-2.png'],
 	},
 	{
 		year: '2025-2027',
 		title: 'ML Engineering Roadmap',
 		description: 'Intensive journey towards becoming Applied ML Engineer',
 		icon: '🚀',
+		image: '/ml-engineering-roadmap.jpeg',
 	},
 ]
 
@@ -176,6 +182,7 @@ const interests = [
 export const About = () => {
 	const [activeTab, setActiveTab] = useState('overview')
 	const [selectedAchievement, setSelectedAchievement] = useState<Achievement | null>(null)
+	const [isProfileModalOpen, setIsProfileModalOpen] = useState(false)
 
 	const TimelineItem = ({ item, index }: { item: TimelineItem; index: number }) => {
 		return (
@@ -207,6 +214,64 @@ export const About = () => {
 						}}
 						className="bg-light-card dark:bg-dark-card rounded-xl p-4 border border-light-border dark:border-dark-border shadow-lg hover:shadow-xl transition-all duration-300"
 					>
+						{/* Single Image */}
+						{item.image && (
+							<div className="mb-4 relative overflow-hidden rounded-lg">
+								<img
+									src={item.image}
+									alt={item.title}
+									className="w-full object-contain"
+									onError={(e) => {
+										const target = e.currentTarget;
+										target.style.display = 'none';
+										const parent = target.parentElement;
+										if (parent) {
+											parent.innerHTML = `
+												<div class="w-full h-32 bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center">
+													<div class="text-center">
+														<div class="text-2xl mb-2">📷</div>
+														<div class="text-xs text-gray-500 dark:text-gray-400">Image not found</div>
+													</div>
+												</div>
+											`;
+										}
+									}}
+								/>
+							</div>
+						)}
+						
+						{/* Multiple Images */}
+						{item.images && item.images.length > 0 && (
+							<div className="mb-4 relative overflow-hidden rounded-lg">
+								<div className="grid grid-cols-2 gap-2">
+									{item.images.map((imageSrc, imgIndex) => (
+										<div key={imgIndex} className="relative overflow-hidden rounded-lg">
+											<img
+												src={imageSrc}
+												alt={`${item.title} ${imgIndex + 1}`}
+												className="w-full h-32 object-cover"
+												onError={(e) => {
+													const target = e.currentTarget;
+													target.style.display = 'none';
+													const parent = target.parentElement;
+													if (parent) {
+														parent.innerHTML = `
+															<div class="w-full h-32 bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center">
+																<div class="text-center">
+																	<div class="text-lg mb-1">📷</div>
+																	<div class="text-xs text-gray-500 dark:text-gray-400">Image ${imgIndex + 1}</div>
+																</div>
+															</div>
+														`;
+													}
+												}}
+											/>
+										</div>
+									))}
+								</div>
+							</div>
+						)}
+						
 						<div className="flex items-center gap-2 mb-2">
 							<span className="text-xl">{item.icon}</span>
 							<span className="font-bold text-blue-600 dark:text-blue-400">{item.year}</span>
@@ -261,6 +326,65 @@ export const About = () => {
 					transition={{ type: "spring", stiffness: 100, damping: 20 }}
 					className="space-y-16"
 				>
+					{/* Big profile image placeholder */}
+					<div className="flex justify-center mb-8">
+						<div 
+							className="relative w-40 h-40 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-gradient-to-r from-blue-500 to-purple-600 shadow-lg bg-gray-200 dark:bg-gray-700 flex items-center justify-center cursor-pointer transform transition-transform hover:scale-105"
+							onClick={() => setIsProfileModalOpen(true)}
+						>
+							<img
+								src="/about-me-image.jpeg"
+								alt="Profile"
+								className="object-cover w-full h-full"
+								onError={(e) => {
+									const parent = e.currentTarget.parentElement;
+									const placeholder = parent?.querySelector('.profile-placeholder') as HTMLElement | null;
+									if (parent && placeholder) {
+										e.currentTarget.style.display = 'none';
+										placeholder.style.display = 'flex';
+									}
+								}}
+							/>
+							<div className="profile-placeholder absolute inset-0 flex-col items-center justify-center text-gray-400 dark:text-gray-300 text-center select-none" style={{display: 'none'}}>
+								<div className="text-5xl mb-2">🖼️</div>
+								<div className="text-base font-medium">Add your profile picture</div>
+								<div className="text-xs mt-1">public/about-me-image.jpeg</div>
+							</div>
+						</div>
+					</div>
+
+					{/* Profile Image Modal */}
+					{isProfileModalOpen && (
+						<m.div
+							initial={{ opacity: 0 }}
+							animate={{ opacity: 1 }}
+							exit={{ opacity: 0 }}
+							className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-75 backdrop-blur-sm"
+							onClick={() => setIsProfileModalOpen(false)}
+						>
+							<m.div
+								initial={{ scale: 0.9, opacity: 0 }}
+								animate={{ scale: 1, opacity: 1 }}
+								exit={{ scale: 0.9, opacity: 0 }}
+								transition={{ type: "spring", stiffness: 300, damping: 25 }}
+								className="relative max-w-4xl w-full max-h-[90vh] rounded-xl overflow-hidden shadow-2xl"
+								onClick={(e) => e.stopPropagation()}
+							>
+								<img
+									src="/about-me-image.jpeg"
+									alt="Profile"
+									className="w-full h-full object-contain bg-white dark:bg-gray-900"
+								/>
+								<button
+									onClick={() => setIsProfileModalOpen(false)}
+									className="absolute top-4 right-4 w-10 h-10 rounded-full bg-black bg-opacity-50 hover:bg-opacity-75 text-white flex items-center justify-center transition-all"
+								>
+									<span className="text-2xl">&times;</span>
+								</button>
+							</m.div>
+						</m.div>
+					)}
+
 					{/* Header with Navigation */}
 					<div className="text-center max-w-4xl mx-auto">
 						<m.h2 

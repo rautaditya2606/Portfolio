@@ -81,17 +81,31 @@ export default function Home() {
             >
               <a
                 href="#about"
-                className="group relative px-8 py-3 w-48 text-lg font-medium text-white bg-primary-600 rounded-full overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/25"
+                className="group relative px-8 py-3 w-48 text-lg font-medium rounded-full overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-primary-600 to-primary-500 group-hover:translate-y-full transition-transform duration-300"></div>
-                <span className="relative">About Me</span>
+                <div 
+                  className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  style={{
+                    background: 'conic-gradient(from 0deg, #3b82f6, #8b5cf6, #3b82f6)',
+                    animation: 'spin-slow 3s linear infinite',
+                  }}
+                ></div>
+                <div className="absolute inset-[2px] bg-white dark:bg-gray-900 rounded-full"></div>
+                <span className="relative z-10 text-gray-900 dark:text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-500 group-hover:to-purple-600 group-hover:bg-clip-text">About Me</span>
               </a>
               <a
                 href="#skills"
-                className="group relative px-8 py-3 w-48 text-lg font-medium border-2 border-primary-600 text-primary-600 dark:text-primary-500 dark:border-primary-500 rounded-full overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/25"
+                className="group relative px-8 py-3 w-48 text-lg font-medium rounded-full overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25"
               >
-                <div className="absolute inset-0 bg-primary-600 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-                <span className="relative group-hover:text-white transition-colors duration-300">View Skills</span>
+                <div 
+                  className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  style={{
+                    background: 'conic-gradient(from 0deg, #3b82f6, #8b5cf6, #3b82f6)',
+                    animation: 'spin-slow 3s linear infinite',
+                  }}
+                ></div>
+                <div className="absolute inset-[2px] bg-white dark:bg-gray-900 rounded-full"></div>
+                <span className="relative z-10 text-gray-900 dark:text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-500 group-hover:to-purple-600 group-hover:bg-clip-text">View Skills</span>
               </a>
             </m.div>
           </m.div>
