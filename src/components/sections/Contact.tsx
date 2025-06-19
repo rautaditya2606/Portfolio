@@ -2,7 +2,7 @@
 
 import { Section } from '@/components/ui/Section'
 import { m } from 'framer-motion'
-import { useForm } from 'react-hook-form'
+import { useState } from 'react'
 import { EnvelopeIcon, GlobeAltIcon, PhoneIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 
@@ -27,39 +27,28 @@ const socialLinks = [
 	},
 ]
 
-interface FormData {
-	name: string
-	email: string
-	message: string
-}
-
 export const Contact = () => {
-	const {
-		register,
-		handleSubmit,
-		formState: { errors },
-		reset,
-	} = useForm<FormData>()
+	const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle')
 
-	const onSubmit = async (data: FormData) => {
+	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault()
+		const form = e.currentTarget
+		const formData = new FormData(form)
+		setStatus('idle')
 		try {
-			const response = await fetch('/api/contact', {
+			const response = await fetch('https://api.web3forms.com/submit', {
 				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify(data),
+				body: formData,
 			})
-
-			if (!response.ok) {
-				throw new Error('Failed to send message')
+			const result = await response.json()
+			if (result.success) {
+				setStatus('success')
+				form.reset()
+			} else {
+				setStatus('error')
 			}
-
-			reset()
-			alert("Thank you for your message! I'll get back to you soon.")
-		} catch (error) {
-			console.error('Error submitting form:', error)
-			alert('There was an error sending your message. Please try again.')
+		} catch {
+			setStatus('error')
 		}
 	}
 
@@ -88,82 +77,54 @@ export const Contact = () => {
 						viewport={{ once: true }}
 						className="bg-light-card dark:bg-dark-card rounded-xl p-6 border border-light-border dark:border-dark-border"
 					>
-						<form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+						<form onSubmit={handleSubmit} className="space-y-6">
+							<input type="hidden" name="access_key" value="89cc64df-0f60-4568-903c-05e072ad22ef" />
 							<div>
-								<label
-									htmlFor="name"
-									className="block text-sm font-medium mb-2"
-								>
-									Name
-								</label>
+								<label htmlFor="name" className="block text-sm font-medium mb-2">Name</label>
 								<input
-									{...register('name', { required: 'Name is required' })}
 									type="text"
 									id="name"
+									name="name"
+									required
 									className="w-full px-4 py-2 rounded-lg bg-light-background dark:bg-dark-background border border-light-border dark:border-dark-border focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
 									placeholder="Your name"
 								/>
-								{errors.name && (
-									<p className="mt-1 text-sm text-red-500">
-										{errors.name.message}
-									</p>
-								)}
 							</div>
-
 							<div>
-								<label
-									htmlFor="email"
-									className="block text-sm font-medium mb-2"
-								>
-									Email
-								</label>
+								<label htmlFor="email" className="block text-sm font-medium mb-2">Email</label>
 								<input
-									{...register('email', {
-										required: 'Email is required',
-										pattern: {
-											value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-											message: 'Invalid email address',
-										},
-									})}
 									type="email"
 									id="email"
+									name="email"
+									required
+									pattern="^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$"
 									className="w-full px-4 py-2 rounded-lg bg-light-background dark:bg-dark-background border border-light-border dark:border-dark-border focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
 									placeholder="your.email@example.com"
 								/>
-								{errors.email && (
-									<p className="mt-1 text-sm text-red-500">
-										{errors.email.message}
-									</p>
-								)}
 							</div>
-
 							<div>
-								<label
-									htmlFor="message"
-									className="block text-sm font-medium mb-2"
-								>
-									Message
-								</label>
+								<label htmlFor="message" className="block text-sm font-medium mb-2">Message</label>
 								<textarea
-									{...register('message', { required: 'Message is required' })}
 									id="message"
+									name="message"
 									rows={4}
+									required
 									className="w-full px-4 py-2 rounded-lg bg-light-background dark:bg-dark-background border border-light-border dark:border-dark-border focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
 									placeholder="Your message..."
 								/>
-								{errors.message && (
-									<p className="mt-1 text-sm text-red-500">
-										{errors.message.message}
-									</p>
-								)}
 							</div>
-
 							<button
 								type="submit"
-								className="w-full px-8 py-3 text-lg font-medium text-white bg-primary-600 rounded-lg hover:bg-primary-700 transition-colors duration-300"
+								className="w-full px-8 py-3 text-lg font-medium text-white bg-primary-600 rounded-lg transition-colors duration-300"
 							>
 								Send Message
 							</button>
+							{status === 'success' && (
+								<p className="mt-2 text-green-600">Thank you for your message! I'll get back to you soon.</p>
+							)}
+							{status === 'error' && (
+								<p className="mt-2 text-red-600">There was an error sending your message. Please try again.</p>
+							)}
 						</form>
 					</m.div>
 
