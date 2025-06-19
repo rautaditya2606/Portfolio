@@ -3,7 +3,7 @@
 import { Section } from '@/components/ui/Section'
 import { m } from 'framer-motion'
 import { useState } from 'react'
-import { EnvelopeIcon, GlobeAltIcon, PhoneIcon, MapPinIcon } from '@heroicons/react/24/outline'
+import { EnvelopeIcon, PhoneIcon, MapPinIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 
 const socialLinks = [
@@ -82,7 +82,7 @@ export const Contact = () => {
 				>
 					<h2 className="text-4xl font-bold mb-4">Let's Connect</h2>
 					<p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
-						Ready to discuss your next project or just want to say hello? I'm always open to new opportunities and collaborations.
+						Ready to discuss your next project or just want to say hello? I&apos;m always open to new opportunities and collaborations.
 					</p>
 				</m.div>
 
@@ -250,9 +250,9 @@ export const Contact = () => {
 
 								{status === 'success' && (
 									<div className="p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg">
-										<p className="text-green-800 dark:text-green-200 text-sm">
-											✓ Message sent successfully! I'll get back to you within 24 hours.
-										</p>
+										<div className="text-green-600 dark:text-green-400 text-sm">
+											✓ Message sent successfully! I&apos;ll get back to you within 24 hours.
+										</div>
 									</div>
 								)}
 

@@ -90,28 +90,47 @@ const obsessions: ObsessionItem[] = [
 ]
 
 const FloatingParticles = ({ count = 20 }) => {
+	// Use deterministic positions based on index to avoid hydration mismatch
+	const getPosition = (index: number) => {
+		const seed = index * 137.5 // Use golden angle approximation for good distribution
+		const x = (seed * 0.618033988749895) % 1 * 100
+		const y = (seed * 0.381966011250105) % 1 * 100
+		return { x, y }
+	}
+
+	const getDuration = (index: number) => {
+		return 2 + (index % 3) // 2-4 seconds
+	}
+
+	const getDelay = (index: number) => {
+		return (index % 2) // 0 or 1 second delay
+	}
+
 	return (
 		<div className="absolute inset-0 overflow-hidden pointer-events-none">
-			{[...Array(count)].map((_, i) => (
-				<m.div
-					key={i}
-					className="absolute w-1 h-1 bg-white/20 rounded-full"
-					initial={{
-						x: Math.random() * 100 + '%',
-						y: Math.random() * 100 + '%',
-					}}
-					animate={{
-						y: ['-10%', '110%'],
-						opacity: [0, 1, 0],
-					}}
-					transition={{
-						duration: Math.random() * 3 + 2,
-						repeat: Infinity,
-						ease: 'linear',
-						delay: Math.random() * 2,
-					}}
-				/>
-			))}
+			{[...Array(count)].map((_, i) => {
+				const position = getPosition(i)
+				return (
+					<m.div
+						key={i}
+						className="absolute w-1 h-1 bg-white/20 rounded-full"
+						initial={{
+							x: position.x + '%',
+							y: position.y + '%',
+						}}
+						animate={{
+							y: ['-10%', '110%'],
+							opacity: [0, 1, 0],
+						}}
+						transition={{
+							duration: getDuration(i),
+							repeat: Infinity,
+							ease: 'linear',
+							delay: getDelay(i),
+						}}
+					/>
+				)
+			})}
 		</div>
 	)
 }

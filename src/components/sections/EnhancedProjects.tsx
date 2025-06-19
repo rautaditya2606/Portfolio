@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef, useCallback } from 'react'
+import { useState, useCallback } from 'react'
 
 const projects = [
 	{
@@ -209,7 +209,7 @@ export default function ProfessionalPortfolio() {
 									<div className="flex gap-4">
 										{confidentialProjects.includes(currentProject.name) ? (
 											<div className="flex-1 bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 px-6 py-3 rounded-lg font-medium text-center cursor-not-allowed">
-												Can't show source code (confidential)
+												Can&apos;t show source code (confidential)
 											</div>
 										) : projectRepoLinks[currentProject.name] ? (
 											<a
