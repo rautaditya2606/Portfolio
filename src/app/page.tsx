@@ -10,8 +10,13 @@ import { Obsessions } from '@/components/sections/Obsessions'
 import { AnimatedGreeting } from '@/components/ui/AnimatedGreeting'
 import { m } from 'framer-motion'
 import { handleSmoothScroll } from '@/utils/smoothScroll'
+import { useEffect } from 'react'
 
-export default function Home() { 
+export default function Home() {
+  useEffect(() => {
+    fetch('/api/visiterlog', { method: 'POST' })
+  }, [])
+
   return (
     <main className="relative">
       <Section fullHeight className="flex items-center justify-center relative overflow-hidden">
