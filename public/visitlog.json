@@ -26,5 +26,19 @@
     "os": "Linux",
     "device": "Desktop",
     "timestamp": "2025-06-20T08:15:50.747Z"
+  },
+  {
+    "ip": "::1",
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
+    "os": "Linux",
+    "device": "Desktop",
+    "timestamp": "2025-06-30T20:09:25.891Z"
+  },
+  {
+    "ip": "::1",
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
+    "os": "Linux",
+    "device": "Desktop",
+    "timestamp": "2025-06-30T20:11:47.675Z"
   }
 ]

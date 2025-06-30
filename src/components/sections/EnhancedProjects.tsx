@@ -81,6 +81,12 @@ const projectRepoLinks: Record<string, string> = {
 	'Astech': 'https://github.com/rautaditya2606/Astech',
 }
 
+// Add a mapping for project name to live website URL
+const projectLiveLinks: Record<string, string> = {
+	'NestNow': 'https://nestnow-045h.onrender.com',
+	'NPSP': 'https://npsp.onrender.com/',
+}
+
 // Add a list of projects that should show confidential message
 const confidentialProjects = ['Chat Assistant']
 
@@ -205,23 +211,65 @@ export default function ProfessionalPortfolio() {
 										</ul>
 									</div>
 
-									{/* Action Button */}
+									{/* Action Buttons */}
 									<div className="flex gap-4">
+										{/* Live Demo Button */}
+										{projectLiveLinks[currentProject.name] ? (
+											<a
+												href={projectLiveLinks[currentProject.name]}
+												target="_blank"
+												rel="noopener noreferrer"
+												className="group relative flex-1 px-6 py-3 rounded-lg overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 cursor-pointer"
+											>
+												<div 
+													className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+													style={{
+														background: 'conic-gradient(from 0deg, #3b82f6, #8b5cf6, #3b82f6)',
+														animation: 'spin-slow 3s linear infinite',
+													}}
+												></div>
+												<div className="absolute inset-[2px] bg-white dark:bg-gray-900 rounded-lg"></div>
+												<span className="relative z-10 text-gray-900 dark:text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-500 group-hover:to-purple-600 group-hover:bg-clip-text flex items-center justify-center gap-2 font-medium">
+													<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+														<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+													</svg>
+													Live Demo
+												</span>
+											</a>
+										) : (
+											<div className="flex-1 bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 px-6 py-3 rounded-lg font-medium text-center cursor-not-allowed flex items-center justify-center gap-2">
+												<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+													<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+												</svg>
+												Demo Not Available
+											</div>
+										)}
+
+										{/* View Code Button */}
 										{confidentialProjects.includes(currentProject.name) ? (
-											<div className="flex-1 bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 px-6 py-3 rounded-lg font-medium text-center cursor-not-allowed">
-												Can&apos;t show source code (confidential)
+											<div className="flex-1 bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 px-6 py-3 rounded-lg font-medium text-center cursor-not-allowed flex items-center justify-center gap-2">
+												<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+													<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+												</svg>
+												Code Confidential
 											</div>
 										) : projectRepoLinks[currentProject.name] ? (
 											<a
 												href={projectRepoLinks[currentProject.name]}
 												target="_blank"
 												rel="noopener noreferrer"
-												className="flex-1 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 text-center"
+												className="flex-1 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 text-center flex items-center justify-center gap-2"
 											>
+												<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+													<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+												</svg>
 												View Code
 											</a>
 										) : (
-											<button className="flex-1 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900">
+											<button className="flex-1 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 flex items-center justify-center gap-2">
+												<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+													<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+												</svg>
 												View Source Code
 											</button>
 										)}
