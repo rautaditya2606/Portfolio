@@ -32,15 +32,16 @@ const projects = [
 		featured: true
 	},
 	{
-		name: 'Library Management System',
-		type: 'Academic Resource Management',
-		description: 'MongoDB-powered system for college libraries with comprehensive feature coverage and security implementation.',
-		techStack: ['MongoDB', 'Express.js', 'Helmet', 'QR Code', 'Node.js'],
+		name: 'AudiTxt',
+		type: 'Audio Transcription and Summarization Web App',
+		description: 'A web platform designed to convert audio into text, providing users with fast, accurate transcription and AI-powered summaries. Suitable for meetings, interviews, lectures, and any scenario needing searchable, exportable speech-to-text.',
+		techStack: ['EJS', 'CSS', 'JavaScript', 'Node.js', 'Express.js', 'Deepgram API'],
 		highlights: [
-			'Role-based access control (librarian, student)',
-			'Book management: issue, return, renew with QR-code support',
-			'Automated overdue reminders and usage analytics',
-			'Security implementation with rate limiting and session management'
+			'Dynamic, server-side rendered pages using EJS templates',
+			'Modern and responsive design with CSS including dark mode',
+			'Interactive front-end elements powered by JavaScript',
+			'Upload audio files, record audio, or use real-time streaming for transcription',
+			'High-quality AI transcription and summarization via Deepgram'
 		],
 		featured: true
 	},
@@ -77,7 +78,7 @@ const projects = [
 const projectRepoLinks: Record<string, string> = {
 	'NestNow': 'https://github.com/rautaditya2606/NestNow',
 	'NPSP': 'https://github.com/rautaditya2606/NPSP',
-	'Library Management System': 'https://github.com/rautaditya2606/lib',
+	'AudiTxt': 'https://github.com/rautaditya2606/AudiTxt',
 	'Astech': 'https://github.com/rautaditya2606/Astech',
 }
 
@@ -85,6 +86,8 @@ const projectRepoLinks: Record<string, string> = {
 const projectLiveLinks: Record<string, string> = {
 	'NestNow': 'https://nestnow-045h.onrender.com',
 	'NPSP': 'https://npsp.onrender.com/',
+	'AudiTxt': 'https://auditxt-kyny.onrender.com/',
+	'Astech': 'https://astech-cg4m.onrender.com/',
 }
 
 // Add a list of projects that should show confidential message

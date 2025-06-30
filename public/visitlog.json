@@ -40,5 +40,48 @@
     "os": "Linux",
     "device": "Desktop",
     "timestamp": "2025-06-30T20:11:47.675Z"
+  },
+  {
+    "ip": "::1",
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
+    "os": "Linux",
+    "device": "Desktop",
+    "timestamp": "2025-06-30T20:22:16.119Z"
+  },
+  {
+    "ip": "::1",
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
+    "os": "Linux",
+    "device": "Desktop",
+    "timestamp": "2025-06-30T20:26:06.813Z"
+  },
+  {
+    "ip": "::1",
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
+    "os": "Linux",
+    "device": "Desktop",
+    "timestamp": "2025-06-30T20:26:08.466Z"
+  },
+  {
+    "ip": "::1",
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
+    "os": "Linux",
+    "device": "Desktop",
+    "timestamp": "2025-06-30T20:26:32.556Z"
+  },
+  {
+    "ip": "::1",
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
+    "os": "Linux",
+    "device": "Desktop",
+    "timestamp": "2025-06-30T20:36:02.811Z",
+    "date": "July 1, 2025",
+    "time": "02:06:02 AM GMT+5:30",
+    "linkClicked": "http://localhost:8080/",
+    "referrer": "Direct Visit",
+    "pageTitle": "Aditya // Code",
+    "language": "en-GB",
+    "screenResolution": "1920x1080",
+    "timezone": "Asia/Calcutta"
   }
 ]

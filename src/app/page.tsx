@@ -12,9 +12,36 @@ import { m } from 'framer-motion'
 import { handleSmoothScroll } from '@/utils/smoothScroll'
 import { useEffect } from 'react'
 
-export default function Home() {
+export default function Home() { 
   useEffect(() => {
-    fetch('/api/visiterlog', { method: 'POST' })
+    // Log visitor when they visit the portfolio
+    const logVisitor = async () => {
+      try {
+        const response = await fetch('/api/visiterlog', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            linkClicked: window.location.href,
+            referrer: document.referrer || 'Direct Visit',
+            pageTitle: document.title,
+            userAgent: navigator.userAgent,
+            language: navigator.language,
+            screenResolution: `${screen.width}x${screen.height}`,
+            timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+          }),
+        })
+        
+        if (response.ok) {
+          console.log('Visitor logged successfully')
+        }
+      } catch (error) {
+        console.error('Failed to log visitor:', error)
+      }
+    }
+
+    logVisitor()
   }, [])
 
   return (

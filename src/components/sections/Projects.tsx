@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { Section } from '@/components/ui/Section'
 import { m } from 'framer-motion'
+import { trackLinkClick } from '@/utils/linkTracker'
 
 const projects = [
 	{
@@ -399,11 +400,15 @@ export const Projects = () => {
 														href={project.deployedUrl}
 														target="_blank"
 														rel="noopener noreferrer"
+														onClick={() => trackLinkClick(project.deployedUrl, `View Live Demo - ${project.name}`)}
 														className="flex-1 bg-background/20 backdrop-blur-sm text-white px-6 py-3 rounded-lg font-medium hover:bg-background/30 transition-all duration-300 text-center border border-border/30 hover:scale-105"
 													>
 														View Live Demo
 													</a>
-													<button className="bg-white text-foreground px-6 py-3 rounded-lg font-medium hover:bg-white/90 transition-all duration-300 hover:scale-105">
+													<button 
+														onClick={() => trackLinkClick(`https://github.com/yourusername/${project.name.toLowerCase()}`, `View Code - ${project.name}`)}
+														className="bg-white text-foreground px-6 py-3 rounded-lg font-medium hover:bg-white/90 transition-all duration-300 hover:scale-105"
+													>
 														View Code
 													</button>
 												</div>
