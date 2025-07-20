@@ -4,6 +4,7 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import { Section } from '@/components/ui/Section'
 import { m } from 'framer-motion'
 import { trackLinkClick } from '@/utils/linkTracker'
+import { Trophy, Briefcase, Home } from 'lucide-react'
 
 const projects = [
 	{
@@ -17,7 +18,7 @@ const projects = [
 			'Locale support via i18n',
 			'Robust error handling and mock APIs for testing',
 		],
-		achievement: '🏆 2nd Place in IIC Udaan 2.0 Hackathon',
+		achievement: <Trophy className="w-5 h-5 inline mr-1" /> + '2nd Place in IIC Udaan 2.0 Hackathon',
 		deployedUrl: 'javascript:void(0)',
 		featured: true,
 		stats: { lines: '5.2K', commits: '127', contributors: '3' },
@@ -35,7 +36,7 @@ const projects = [
 			'Mobile‑friendly UI built with EJS and Bootstrap',
 			'Data seeding scripts for scalable initialization'
 		],
-		achievement: '💼 Secured Multiple Internship Offers',
+		achievement: <Briefcase className="w-5 h-5 inline mr-1" /> + 'Secured Multiple Internship Offers',
 		deployedUrl: 'javascript:void(0)',
 		featured: true,
 		stats: { lines: '8.1K', commits: '203', contributors: '2' },
@@ -70,7 +71,7 @@ const projects = [
 			'Emphasizes community and local engagement through UX and copy',
 			'Landing page prototype for co-living marketplaces'
 		],
-		achievement: '🏠 Modern UX Design',
+		achievement: <Home className="w-5 h-5 inline mr-1" /> + 'Modern UX Design',
 		deployedUrl: 'javascript:void(0)',
 		stats: { lines: '2.3K', commits: '45', contributors: '1' },
 		category: 'Frontend',

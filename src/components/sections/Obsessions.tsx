@@ -3,6 +3,7 @@
 import { Section } from '@/components/ui/Section'
 import { m, AnimatePresence } from 'framer-motion'
 import { useState, useRef, useEffect } from 'react'
+import { Car, Plane, Telescope } from 'lucide-react'
 
 interface Achievement {
 	title: string
@@ -17,7 +18,7 @@ interface Stat {
 interface ObsessionItem {
 	title: string
 	description: string
-	icon: string
+	icon: React.ReactNode
 	details: string[]
 	color: string
 	achievements: Achievement[]
@@ -31,7 +32,7 @@ const obsessions: ObsessionItem[] = [
 		title: 'Automobiles',
 		description:
 			'Passionate about Italian supercars and over-engineered bikes, especially MV Agusta and Ducati. The perfect blend of engineering and art.',
-		icon: '🏎️',
+		icon: <Car className="w-8 h-8" />,
 		details: [],
 		stats: [
 			{ label: 'Favorite Car', value: 'Ferrari F40' },
@@ -40,7 +41,7 @@ const obsessions: ObsessionItem[] = [
 			{ label: 'Cylinders', value: 'V8 Twin Turbo' },
 		],
 		bgImage: '/images/automotive-bg.jpg',
-		color: 'from-blue-500 to-purple-600',
+		color: 'from-[#abcdef] to-[#abcdef]',
 		achievements: [
 			{ title: 'Motorcycle License', value: 'Obtained' },
 			{ title: 'Car Enthusiast', value: 'Expert' }
@@ -51,7 +52,7 @@ const obsessions: ObsessionItem[] = [
 		title: 'Military Aviation',
 		description:
 			'Deeply interested in jets, airpower, and combat systems. Fascinated by the technological advancement in military aviation.',
-		icon: '✈️',
+		icon: <Plane className="w-8 h-8" />,
 		details: [],
 		stats: [
 			{ label: 'Favorite Jet', value: 'Marut' },
@@ -59,7 +60,7 @@ const obsessions: ObsessionItem[] = [
 			{ label: 'Ceiling', value: '65,000 ft' },
 		],
 		bgImage: '/images/aviation-bg.jpg',
-		color: 'from-blue-500 to-purple-600',
+		color: 'from-[#abcdef] to-[#abcdef]',
 		achievements: [
 			{ title: 'Aviation History', value: 'Expert' },
 			{ title: 'Flight Simulator', value: 'Pro' }
@@ -70,7 +71,7 @@ const obsessions: ObsessionItem[] = [
 		title: 'Astronomy',
 		description:
 			'Former stargazer with telescope experience. Can identify planets and stars without aids. The mysteries of space continue to captivate me.',
-		icon: '🔭',
+		icon: <Telescope className="w-8 h-8" />,
 		details: [],
 		stats: [
 			{ label: 'Favorite Planet', value: 'Saturn' },
@@ -81,7 +82,6 @@ const obsessions: ObsessionItem[] = [
 		bgImage: '/images/astronomy-bg.jpg',
 		color: 'from-purple-500 to-indigo-600',
 		achievements: [
-			{ title: 'Astrophotography', value: 'Advanced' },
 			{ title: 'Star Navigation', value: 'Expert' },
 			{ title: 'Deep Sky Observer', value: 'Certified' }
 		],
@@ -254,7 +254,7 @@ export const Obsessions = () => {
 												scale: hoveredIndex === index ? 1 : 0,
 												rotate: hoveredIndex === index ? 0 : 180,
 											}}
-											className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-full p-3 shadow-lg"
+											className="bg-gradient-to-r from-[#abcdef] to-[#abcdef] rounded-full p-3 shadow-lg"
 										>
 											<svg
 												className="w-6 h-6 text-white"
@@ -270,7 +270,7 @@ export const Obsessions = () => {
 										</m.div>
 									</div>
 
-									<h3 className="text-2xl font-bold mb-4 group-hover:bg-gradient-to-r group-hover:from-blue-500 group-hover:to-purple-600 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+									<h3 className="text-2xl font-bold mb-4 group-hover:bg-gradient-to-r group-hover:from-[#abcdef] group-hover:to-[#abcdef] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
 										{obsession.title}
 									</h3>
 
@@ -286,7 +286,7 @@ export const Obsessions = () => {
 												initial={{ opacity: 0, scale: 0 }}
 												animate={{ opacity: 1, scale: 1 }}
 												transition={{ delay: i * 0.1 + 0.3 }}
-												className="px-3 py-1 text-xs bg-gradient-to-r from-blue-500/20 to-purple-600/20 text-blue-400 rounded-full border border-blue-500/30"
+												className="px-3 py-1 text-xs bg-gradient-to-r from-[#abcdef]/20 to-[#abcdef]/20 text-[#abcdef] rounded-full border border-[#abcdef]/30"
 											>
 												{achievement.title}
 											</m.span>
@@ -313,7 +313,7 @@ export const Obsessions = () => {
 														<span className="text-gray-500 dark:text-gray-400 font-medium">
 															{stat.label}
 														</span>
-														<span className="font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+														<span className="font-bold bg-gradient-to-r from-[#abcdef] to-[#abcdef] bg-clip-text text-transparent">
 															{stat.value}
 														</span>
 													</m.div>
@@ -332,7 +332,7 @@ export const Obsessions = () => {
 												className="pt-4 border-t border-gray-200 dark:border-gray-700"
 											>
 												<div className="flex items-center gap-3 mb-3">
-													<div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+													<div className="w-8 h-8 bg-gradient-to-r from-[#abcdef] to-[#abcdef] rounded-full flex items-center justify-center">
 														<svg
 															className="w-4 h-4 text-white"
 															fill="currentColor"

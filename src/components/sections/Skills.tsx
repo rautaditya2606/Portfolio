@@ -2,11 +2,12 @@
 
 import { Section } from '@/components/ui/Section'
 import { m } from 'framer-motion'
+import { Code, Globe, Wrench } from 'lucide-react'
 
 const skillCategories = [
 	{
 		title: 'Programming Languages',
-		icon: '🖥️',
+		icon: <Code className="w-6 h-6" />,
 		skills: [
 			{
 				name: 'Python',
@@ -37,7 +38,7 @@ const skillCategories = [
 	},
 	{
 		title: 'Web Development',
-		icon: '🌐',
+		icon: <Globe className="w-6 h-6" />,
 		skills: [
 			{
 				name: 'React.js',
@@ -73,7 +74,7 @@ const skillCategories = [
 	},
 	{
 		title: 'Tools & DevOps',
-		icon: '🛠️',
+		icon: <Wrench className="w-6 h-6" />,
 		skills: [
 			{
 				name: 'Git & GitHub',

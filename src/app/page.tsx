@@ -126,7 +126,7 @@ export default function Home() {
                   }}
                 ></div>
                 <div className="absolute inset-[2px] bg-white dark:bg-gray-900 rounded-full"></div>
-                <span className="relative z-10 text-gray-900 dark:text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-500 group-hover:to-purple-600 group-hover:bg-clip-text">About Me</span>
+                <span className="relative z-10 text-gray-900 dark:text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#abcdef] group-hover:to-[#abcdef] group-hover:bg-clip-text">About Me</span>
               </a>
               <a
                 href="#skills"
@@ -141,7 +141,7 @@ export default function Home() {
                   }}
                 ></div>
                 <div className="absolute inset-[2px] bg-white dark:bg-gray-900 rounded-full"></div>
-                <span className="relative z-10 text-gray-900 dark:text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-500 group-hover:to-purple-600 group-hover:bg-clip-text">View Skills</span>
+                <span className="relative z-10 text-gray-900 dark:text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#abcdef] group-hover:to-[#abcdef] group-hover:bg-clip-text">View Skills</span>
               </a>
             </m.div>
           </m.div>

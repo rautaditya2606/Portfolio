@@ -3,11 +3,31 @@
 import { Section } from '@/components/ui/Section'
 import { m } from 'framer-motion'
 import { useState } from 'react'
+import { 
+  Medal, 
+  Rocket, 
+  Handshake, 
+  Briefcase, 
+  Dumbbell, 
+  Scale, 
+  TrendingUp, 
+  GraduationCap,
+  BarChart3,
+  Github,
+  Star,
+  Linkedin,
+  Bot,
+  Plane,
+  Car,
+  Bike,
+  Camera,
+  X
+} from 'lucide-react'
 
 interface Achievement {
     title: string;
     description: string;
-    icon: string;
+    icon: React.ReactNode;
     category: string;
     date: string;
     link: string;
@@ -17,7 +37,7 @@ interface TimelineItem {
     year: string;
     title: string;
     description: string;
-    icon: string;
+    icon: React.ReactNode;
     image?: string;
     images?: string[]; // For multiple images
 }
@@ -27,7 +47,7 @@ const achievements: Achievement[] = [
 		title: '2nd Place - IIC Udaan 2.0',
 		description:
 			'Secured second place in the IIC Udaan 2.0 hackathon, demonstrating innovative problem-solving and technical expertise',
-		icon: '🥈',
+		icon: <Medal className="w-6 h-6" />,
 		category: 'competition',
 		date: 'Apr 2025',
 		link: '#',
@@ -36,7 +56,7 @@ const achievements: Achievement[] = [
 		title: '10+ Full-Stack Projects',
 		description:
 			'Deployed and maintained multiple web applications with real-world impact',
-		icon: '🚀',
+		icon: <Rocket className="w-6 h-6" />,
 		category: 'projects',
 		date: 'Ongoing',
 		link: '#projects',
@@ -45,7 +65,7 @@ const achievements: Achievement[] = [
 		title: '900+ LinkedIn Connections',
 		description:
 			'Building a strong professional network in tech and data science',
-		icon: '🤝',
+		icon: <Handshake className="w-6 h-6" />,
 		category: 'network',
 		date: '2025',
 		link: 'https://linkedin.com',
@@ -54,7 +74,7 @@ const achievements: Achievement[] = [
 		title: 'Industry Experience',
 		description:
 			'Secured internships and collaborations with startups for 2025',
-		icon: '💼',
+		icon: <Briefcase className="w-6 h-6" />,
 		category: 'experience',
 		date: '2025',
 		link: '#',
@@ -70,7 +90,7 @@ const focusAreas = [
 			'Data Analytics projects',
 			'Seeking ML Engineering roles',
 		],
-		color: 'bg-gradient-to-br from-blue-500 to-purple-600',
+		color: 'bg-gradient-to-br from-[#abcdef] to-[#abcdef]',
 	},
 	{
 		title: 'Mathematics Foundation',
@@ -99,7 +119,7 @@ const personalGrowth = [
 		title: 'Physical Fitness',
 		description:
 			'Dedicated bodybuilding enthusiast with a focus on progressive overload. Currently pursuing a lean and aesthetic physique through structured training.',
-		icon: '💪',
+		icon: <Dumbbell className="w-6 h-6" />,
 		progress: 85,
 		metric: 'Consistency',
 	},
@@ -107,7 +127,7 @@ const personalGrowth = [
 		title: 'Balanced Lifestyle',
 		description:
 			'Combining tech passion with fitness goals. Regular gym workouts focusing on compound lifts while maintaining high productivity in development work.',
-		icon: '⚖️',
+		icon: <Scale className="w-6 h-6" />,
 		progress: 78,
 		metric: 'Balance',
 	},
@@ -115,7 +135,7 @@ const personalGrowth = [
 		title: 'Continuous Growth',
 		description:
 			'Setting and achieving progressive goals in both professional and personal domains. Currently focused on strength gains and coding excellence.',
-		icon: '📈',
+		icon: <TrendingUp className="w-6 h-6" />,
 		progress: 92,
 		metric: 'Growth',
 	},
@@ -138,45 +158,45 @@ const timeline = [
 		year: '2024',
 		title: 'Started Computer Science Journey',
 		description: 'Began B.Tech in Computer Science, achieved 8.45 CGPA in first semester',
-		icon: '🎓',
+		icon: <GraduationCap className="w-6 h-6" />,
 		image: '/computer-science-journey.jpeg',
 	},
 	{
 		year: '2025',
 		title: 'IIC Udaan 2.0 Success',
 		description: 'Secured 2nd place in hackathon, demonstrating technical excellence',
-		icon: '🥈',
+		icon: <Medal className="w-6 h-6" />,
 		image: '/iic-udaan-success.jpeg',
 	},
 	{
 		year: '2025',
 		title: 'Industry Collaborations',
 		description: 'Secured internships and partnerships with startups',
-		icon: '🤝',
+		icon: <Handshake className="w-6 h-6" />,
 		images: ['/industry-collaboration.jpeg', '/industry-collaboration-2.png'],
 	},
 	{
 		year: '2025-2027',
 		title: 'ML Engineering Roadmap',
 		description: 'Intensive journey towards becoming Applied ML Engineer',
-		icon: '🚀',
+		icon: <Rocket className="w-6 h-6" />,
 		image: '/ml-engineering-roadmap.jpeg',
 	},
 ]
 
 const stats = [
-	{ label: 'Total Internships', value: '2', icon: '📊' },
-	{ label: 'Github Repos', value: '21', icon: '💻' },
-	{ label: 'Projects Completed', value: '10+', icon: '🚀' },
-	{ label: 'LinkedIn Connections', value: '900+', icon: '🤝' },
+	{ label: 'Total Internships', value: '2', icon: <BarChart3 className="w-6 h-6" /> },
+	{ label: 'Github Repos', value: '21', icon: <Github className="w-6 h-6" /> },
+	{ label: 'Projects Completed', value: '10+', icon: <Star className="w-6 h-6" /> },
+	{ label: 'LinkedIn Connections', value: '900+', icon: <Linkedin className="w-6 h-6" /> },
 ]
 
 const interests = [
-	{ name: 'Machine Learning', icon: '🤖' },
-	{ name: 'Bodybuilding', icon: '💪' },
-	{ name: 'Aviation', icon: '✈️' },
-	{ name: 'Automobiles', icon: '🏎️💨' },
-	{ name: 'Bikes', icon: '🏍️💨' }
+	{ name: 'Machine Learning', icon: <Bot className="w-6 h-6" /> },
+	{ name: 'Bodybuilding', icon: <Dumbbell className="w-6 h-6" /> },
+	{ name: 'Aviation', icon: <Plane className="w-6 h-6" /> },
+	{ name: 'Automobiles', icon: <Car className="w-6 h-6" /> },
+	{ name: 'Bikes', icon: <Bike className="w-6 h-6" /> }
 ]
 
 export const About = () => {
@@ -229,7 +249,7 @@ export const About = () => {
 											parent.innerHTML = `
 												<div class="w-full h-32 bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center">
 													<div class="text-center">
-														<div class="text-2xl mb-2">📷</div>
+														<div className="text-2xl mb-2"><Camera className="w-8 h-8" /></div>
 														<div class="text-xs text-gray-500 dark:text-gray-400">Image not found</div>
 													</div>
 												</div>
@@ -258,7 +278,7 @@ export const About = () => {
 														parent.innerHTML = `
 															<div class="w-full h-32 bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center">
 																<div class="text-center">
-																	<div class="text-lg mb-1">📷</div>
+																	<div className="text-lg mb-1"><Camera className="w-6 h-6" /></div>
 																	<div class="text-xs text-gray-500 dark:text-gray-400">Image ${imgIndex + 1}</div>
 																</div>
 															</div>
@@ -292,7 +312,7 @@ export const About = () => {
 						damping: 20,
 						delay: index * 0.2
 					}}
-					className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full border-4 border-white dark:border-gray-900 z-10"
+												className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gradient-to-r from-[#abcdef] to-[#abcdef] rounded-full border-4 border-white dark:border-gray-900 z-10"
 				/>
 				
 				{/* Horizontal connector line */}
@@ -329,7 +349,7 @@ export const About = () => {
 					{/* Big profile image placeholder */}
 					<div className="flex justify-center mb-8">
 						<div 
-							className="relative w-40 h-40 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-gradient-to-r from-blue-500 to-purple-600 shadow-lg bg-gray-200 dark:bg-gray-700 flex items-center justify-center cursor-pointer transform transition-transform hover:scale-105"
+							className="relative w-40 h-40 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-gradient-to-r from-[#abcdef] to-[#abcdef] shadow-lg bg-gray-200 dark:bg-gray-700 flex items-center justify-center cursor-pointer transform transition-transform hover:scale-105"
 							onClick={() => setIsProfileModalOpen(true)}
 						>
 							<img
@@ -427,7 +447,7 @@ export const About = () => {
 									whileTap={{ scale: 0.95 }}
 									className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
 										activeTab === tab
-											? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg'
+											? 'bg-gradient-to-r from-[#abcdef] to-[#abcdef] text-white shadow-lg'
 											: 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
 									}`}
 								>
@@ -592,7 +612,7 @@ export const About = () => {
 												initial={{ width: 0 }}
 												animate={{ width: `${skill.level}%` }}
 												transition={{ delay: index * 0.1 + 0.5, duration: 1 }}
-												className="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full"
+												className="bg-gradient-to-r from-[#abcdef] to-[#abcdef] h-2 rounded-full"
 											></m.div>
 										</div>
 										<div className="text-right text-sm text-gray-500 mt-1">{skill.level}%</div>
@@ -612,7 +632,7 @@ export const About = () => {
 							<h3 className="text-2xl font-bold mb-6 text-center">Journey Timeline</h3>
 							<div className="relative">
 								{/* Main vertical line */}
-								<div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-blue-500 to-purple-600"></div>
+								<div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-[#abcdef] to-[#abcdef]"></div>
 								
 								{/* Timeline items */}
 								{timeline.map((item, index) => (
@@ -653,7 +673,7 @@ export const About = () => {
 												initial={{ width: 0 }}
 												animate={{ width: `${item.progress}%` }}
 												transition={{ delay: index * 0.1 + 0.5, duration: 1 }}
-												className="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full"
+												className="bg-gradient-to-r from-[#abcdef] to-[#abcdef] h-2 rounded-full"
 											></m.div>
 										</div>
 									</m.div>
@@ -682,7 +702,7 @@ export const About = () => {
 										onClick={() => setSelectedAchievement(null)}
 										className="text-gray-500 hover:text-gray-700 text-xl"
 									>
-										×
+										<X className="w-5 h-5" />
 									</button>
 								</div>
 								<h3 className="text-xl font-bold mb-2">{selectedAchievement.title}</h3>

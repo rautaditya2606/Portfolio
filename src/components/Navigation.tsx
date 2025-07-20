@@ -4,6 +4,7 @@ import { m, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 import { handleSmoothScroll } from '@/utils/smoothScroll'
 import { useState } from 'react'
+import { ThemeToggle } from '@/components/ui/ThemeToggle'
 
 const navItems = [
   { name: 'About', href: '#about' },
@@ -38,23 +39,27 @@ export const Navigation = () => {
               key={item.name}
               href={item.href}
               onClick={handleSmoothScroll}
-              className="text-sm font-medium text-gray-600 dark:text-gray-400 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-600 hover:bg-clip-text hover:text-transparent hover:scale-105 transition-all duration-300 relative group px-2 py-1 cursor-pointer"
+              className="text-sm font-medium text-gray-600 dark:text-gray-400 hover:bg-gradient-to-r hover:from-[#abcdef] hover:to-[#abcdef] hover:bg-clip-text hover:text-transparent hover:scale-105 transition-all duration-300 relative group px-2 py-1 cursor-pointer"
             >
               {item.name}
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-600 group-hover:w-full transition-all duration-300 ease-out"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#abcdef] to-[#abcdef] group-hover:w-full transition-all duration-300 ease-out"></span>
             </a>
           ))}
+          <ThemeToggle />
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="md:hidden absolute right-4 w-12 h-12 flex flex-col justify-center items-center space-y-1.5 rounded-xl bg-white/40 dark:bg-gray-900/50 backdrop-blur-xl border border-white/40 dark:border-gray-600/40 hover:bg-white/60 dark:hover:bg-gray-900/70 transition-all duration-300 shadow-xl"
-        >
-          <span className={`w-7 h-0.5 bg-gray-800 dark:bg-gray-200 transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-          <span className={`w-7 h-0.5 bg-gray-800 dark:bg-gray-200 transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`}></span>
-          <span className={`w-7 h-0.5 bg-gray-800 dark:bg-gray-200 transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
-        </button>
+        {/* Mobile Menu Button and Theme Toggle */}
+        <div className="md:hidden absolute right-4 flex items-center space-x-2">
+          <ThemeToggle />
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="w-12 h-12 flex flex-col justify-center items-center space-y-1.5 rounded-xl bg-white/40 dark:bg-gray-900/50 backdrop-blur-xl border border-white/40 dark:border-gray-600/40 hover:bg-white/60 dark:hover:bg-gray-900/70 transition-all duration-300 shadow-xl"
+          >
+            <span className={`w-7 h-0.5 bg-gray-800 dark:bg-gray-200 transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+            <span className={`w-7 h-0.5 bg-gray-800 dark:bg-gray-200 transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`}></span>
+            <span className={`w-7 h-0.5 bg-gray-800 dark:bg-gray-200 transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+          </button>
+        </div>
 
         {/* Mobile Navigation Menu */}
         <AnimatePresence>

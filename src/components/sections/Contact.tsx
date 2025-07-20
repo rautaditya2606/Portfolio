@@ -4,6 +4,7 @@ import { Section } from '@/components/ui/Section'
 import { m } from 'framer-motion'
 import { useState } from 'react'
 import { EnvelopeIcon, PhoneIcon, MapPinIcon } from '@heroicons/react/24/outline'
+import { Check, X } from 'lucide-react'
 import Link from 'next/link'
 
 const socialLinks = [
@@ -165,10 +166,10 @@ export const Contact = () => {
 						<div className="mt-6 bg-gradient-to-br from-primary-50 to-purple-50 dark:from-primary-900/20 dark:to-purple-900/20 rounded-xl p-6 border border-primary-200 dark:border-primary-800">
 							<h4 className="font-semibold text-gray-900 dark:text-white mb-3">Open for Opportunities</h4>
 							<div className="grid grid-cols-2 gap-2 text-sm">
-								<div className="text-gray-600 dark:text-gray-400">• ML & MLOps</div>
-								<div className="text-gray-600 dark:text-gray-400">• Data Science</div>
-								<div className="text-gray-600 dark:text-gray-400">• Full-Stack Dev</div>
-								<div className="text-gray-600 dark:text-gray-400">• Open Source</div>
+								<div className="text-gray-600 dark:text-gray-400 flex items-center gap-2"><Check className="w-4 h-4" /> ML & MLOps</div>
+<div className="text-gray-600 dark:text-gray-400 flex items-center gap-2"><Check className="w-4 h-4" /> Data Science</div>
+<div className="text-gray-600 dark:text-gray-400 flex items-center gap-2"><Check className="w-4 h-4" /> Full-Stack Dev</div>
+<div className="text-gray-600 dark:text-gray-400 flex items-center gap-2"><Check className="w-4 h-4" /> Open Source</div>
 							</div>
 						</div>
 					</m.div>
@@ -251,7 +252,7 @@ export const Contact = () => {
 								{status === 'success' && (
 									<div className="p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg">
 										<div className="text-green-600 dark:text-green-400 text-sm">
-											✓ Message sent successfully! I&apos;ll get back to you within 24 hours.
+											<Check className="w-5 h-5 inline mr-2" /> Message sent successfully! I&apos;ll get back to you within 24 hours.
 										</div>
 									</div>
 								)}
@@ -259,7 +260,7 @@ export const Contact = () => {
 								{status === 'error' && (
 									<div className="p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg">
 										<p className="text-red-800 dark:text-red-200 text-sm">
-											✗ There was an error sending your message. Please try again or contact me directly.
+											<X className="w-5 h-5 inline mr-2" /> There was an error sending your message. Please try again or contact me directly.
 										</p>
 									</div>
 								)}

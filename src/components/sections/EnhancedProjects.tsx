@@ -232,7 +232,7 @@ export default function ProfessionalPortfolio() {
 													}}
 												></div>
 												<div className="absolute inset-[2px] bg-white dark:bg-gray-900 rounded-lg"></div>
-												<span className="relative z-10 text-gray-900 dark:text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-500 group-hover:to-purple-600 group-hover:bg-clip-text flex items-center justify-center gap-2 font-medium">
+												<span className="relative z-10 text-gray-900 dark:text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#abcdef] group-hover:to-[#abcdef] group-hover:bg-clip-text flex items-center justify-center gap-2 font-medium">
 													<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 														<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
 													</svg>

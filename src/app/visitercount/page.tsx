@@ -46,7 +46,7 @@ export default function VisiterCountPage() {
               placeholder="Enter password"
               className="px-4 py-2 rounded border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 w-64"
             />
-            <button type="submit" className="px-6 py-2 rounded bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold">View Logs</button>
+            <button type="submit" className="px-6 py-2 rounded bg-gradient-to-r from-[#abcdef] to-[#abcdef] text-white font-semibold">View Logs</button>
             {error && <div className="text-red-500 text-sm">{error}</div>}
           </form>
         ) : (
