@@ -4,9 +4,63 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import { Section } from '@/components/ui/Section'
 import { m } from 'framer-motion'
 import { trackLinkClick } from '@/utils/linkTracker'
-import { Trophy, Briefcase, Home } from 'lucide-react'
+import { Trophy, Briefcase, Home, Brain, ShoppingCart, CreditCard, Car, Shield } from 'lucide-react'
 
 const projects = [
+	{
+		name: 'Rossmann Store Sales Predictor',
+		type: 'Store Sales Prediction System',
+		description: 'Predicts store sales using historical data with XGBoost algorithm. Features comprehensive feature engineering and time-series decomposition for accurate sales forecasting.',
+		techStack: ['XGBoost', 'Python', 'Flask', 'Pandas', 'Scikit-learn', 'Time Series'],
+		highlights: [
+			'Feature engineering and time-series decomposition',
+			'End-to-end deployment with Flask',
+			'Comprehensive data preprocessing pipeline',
+			'Advanced regression modeling techniques'
+		],
+		achievement: <ShoppingCart className="w-5 h-5 inline mr-1" /> + 'End-to-End ML Deployment',
+		deployedUrl: 'https://rossmann-sales-predictor-live.herokuapp.com',
+		featured: true,
+		stats: { lines: '3.2K', commits: '87', contributors: '1' },
+		category: 'Machine Learning',
+		gradient: 'from-indigo-500/20 via-purple-500/20 to-blue-500/20'
+	},
+	{
+		name: 'New York Taxi Fare Predictor',
+		type: 'Large-Scale Fare Prediction',
+		description: 'Predicts taxi fare based on trip details and location data using LightGBM & XGBoost. Handles regression modeling on massive datasets with 50M+ rows.',
+		techStack: ['LightGBM', 'XGBoost', 'Python', 'Pandas', 'Geospatial Analysis', 'Big Data'],
+		highlights: [
+			'Regression modeling on a large dataset (~50M+ rows)',
+			'Feature engineering including geospatial transformations',
+			'Advanced ensemble methods for improved accuracy',
+			'Optimized for large-scale data processing'
+		],
+		achievement: <Car className="w-5 h-5 inline mr-1" /> + 'Big Data ML Pipeline',
+		deployedUrl: 'https://github.com/yourusername/ny-taxi-fare-predictor',
+		featured: true,
+		stats: { lines: '4.8K', commits: '156', contributors: '1' },
+		category: 'Machine Learning',
+		gradient: 'from-yellow-500/20 via-orange-500/20 to-red-500/20'
+	},
+	{
+		name: 'Credit Card Fraud Detection',
+		type: 'Fraud Detection System',
+		description: 'Detects fraudulent credit card transactions using transaction data with XGBoost Classifier. Implements advanced techniques for handling class imbalance.',
+		techStack: ['XGBoost', 'SMOTE', 'Python', 'Scikit-learn', 'Imbalanced-learn', 'Classification'],
+		highlights: [
+			'Class imbalance handling with SMOTE',
+			'Model evaluation with precision, recall, and F1-score',
+			'Advanced feature selection techniques',
+			'Real-time fraud detection capabilities'
+		],
+		achievement: <Shield className="w-5 h-5 inline mr-1" /> + 'Advanced Classification System',
+		deployedUrl: 'https://github.com/yourusername/credit-card-fraud-detection',
+		featured: true,
+		stats: { lines: '2.9K', commits: '73', contributors: '1' },
+		category: 'Machine Learning',
+		gradient: 'from-emerald-500/20 via-teal-500/20 to-cyan-500/20'
+	},
 	{
 		name: 'NPSP',
 		type: 'Unified Property Search Platform',
@@ -79,7 +133,7 @@ const projects = [
 	}
 ]
 
-const categories = ['All', 'Backend', 'Full-Stack', 'Frontend']
+const categories = ['All', 'Machine Learning', 'Backend', 'Full-Stack', 'Frontend']
 
 export const Projects = () => {
 	const containerRef = useRef<HTMLDivElement>(null)
@@ -327,6 +381,7 @@ export const Projects = () => {
 														<span className={`px-3 py-1 rounded-full text-xs font-medium ${
 															project.category === 'Backend' ? 'bg-blue-500/30 text-blue-100' :
 															project.category === 'Frontend' ? 'bg-pink-500/30 text-pink-100' :
+															project.category === 'Machine Learning' ? 'bg-purple-500/30 text-purple-100' :
 															'bg-green-500/30 text-green-100'
 														}`}>
 															{project.category}

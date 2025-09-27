@@ -144,6 +144,20 @@ export default function Home() {
                 <span className="relative z-10 text-gray-900 dark:text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#abcdef] group-hover:to-[#abcdef] group-hover:bg-clip-text">View Skills</span>
               </a>
             </m.div>
+
+            {/* Running Lenny GIF */}
+            <m.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.0, duration: 0.5 }}
+              className="flex justify-center mt-8"
+            >
+              <img 
+                src="/running_lenny_outline.gif" 
+                alt="Running Lenny" 
+                className="w-32 h-32 object-contain"
+              />
+            </m.div>
           </m.div>
         </div>
 

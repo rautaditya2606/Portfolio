@@ -4,6 +4,48 @@ import { useState, useCallback } from 'react'
 
 const projects = [
 	{
+		name: 'Rossmann Store Sales Predictor',
+		type: 'Store Sales Prediction System',
+		description: 'Predicts store sales using historical data with XGBoost algorithm. Features comprehensive feature engineering and time-series decomposition for accurate sales forecasting with Flask deployment.',
+		techStack: ['XGBoost', 'Python', 'Flask', 'Pandas', 'Scikit-learn', 'Time Series'],
+		highlights: [
+			'Feature engineering and time-series decomposition',
+			'End-to-end deployment with Flask',
+			'Comprehensive data preprocessing pipeline',
+			'Advanced regression modeling techniques'
+		],
+		achievement: 'End-to-End ML Deployment',
+		featured: true
+	},
+	{
+		name: 'New York Taxi Fare Predictor',
+		type: 'Large-Scale Fare Prediction',
+		description: 'Predicts taxi fare based on trip details and location data using LightGBM & XGBoost. Handles regression modeling on massive datasets with 50M+ rows for accurate fare estimation.',
+		techStack: ['LightGBM', 'XGBoost', 'Python', 'Pandas', 'Geospatial Analysis', 'Big Data'],
+		highlights: [
+			'Regression modeling on a large dataset (~50M+ rows)',
+			'Feature engineering including geospatial transformations',
+			'Advanced ensemble methods for improved accuracy',
+			'Optimized for large-scale data processing'
+		],
+		achievement: 'Big Data ML Pipeline',
+		featured: true
+	},
+	{
+		name: 'Credit Card Fraud Detection',
+		type: 'Fraud Detection System',
+		description: 'Detects fraudulent credit card transactions using transaction data with XGBoost Classifier. Implements advanced techniques for handling class imbalance with SMOTE and comprehensive evaluation metrics.',
+		techStack: ['XGBoost', 'SMOTE', 'Python', 'Scikit-learn', 'Imbalanced-learn', 'Classification'],
+		highlights: [
+			'Class imbalance handling with SMOTE',
+			'Model evaluation with precision, recall, and F1-score',
+			'Advanced feature selection techniques',
+			'Real-time fraud detection capabilities'
+		],
+		achievement: 'Advanced Classification System',
+		featured: true
+	},
+	{
 		name: 'NPSP',
 		type: 'Unified Property Search Platform',
 		description: 'Full-stack Express.js API integrating multiple property data sources in India (DLR, DORSI, CERSAI, MCA21). Awarded 2nd place in IIC Udaan 2.0 hackathon.',
@@ -76,6 +118,9 @@ const projects = [
 
 // Add a mapping for project name to repo URL
 const projectRepoLinks: Record<string, string> = {
+	'Rossmann Store Sales Predictor': 'https://github.com/rautaditya2606/Rossman-Deployed',
+	'New York Taxi Fare Predictor': 'https://github.com/rautaditya2606/NY_TAXi_Fare',
+	'Credit Card Fraud Detection': 'https://github.com/rautaditya2606/Credt_Card_Fraud_Detection',
 	'NestNow': 'https://github.com/rautaditya2606/NestNow',
 	'NPSP': 'https://github.com/rautaditya2606/NPSP',
 	'AudiTxt': 'https://github.com/rautaditya2606/AudiTxt',
@@ -84,8 +129,9 @@ const projectRepoLinks: Record<string, string> = {
 
 // Add a mapping for project name to live website URL
 const projectLiveLinks: Record<string, string> = {
+	'Rossmann Store Sales Predictor': 'https://rossman-deployed.onrender.com/',
 	'NestNow': 'https://nestnow-045h.onrender.com',
-	'NPSP': 'https://npsp.onrender.com/',
+	'NPSP': 'https://npsp-5ffx.onrender.com/language',
 	'AudiTxt': 'https://auditxt-kyny.onrender.com/',
 	'Astech': 'https://astech-cg4m.onrender.com/',
 }
@@ -117,7 +163,7 @@ export default function ProfessionalPortfolio() {
 						Featured Projects
 					</h1>
 					<p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-						A showcase of full-stack development projects demonstrating technical proficiency and problem-solving capabilities.
+						A showcase of full-stack development and machine learning projects demonstrating technical proficiency and problem-solving capabilities.
 					</p>
 				</header>
 
