@@ -40,78 +40,82 @@ const experiences = [
 
 export const Experience = () => {
   return (
-    <Section id="experience" className="py-20">
+    <Section id="experience" className="py-24">
       <m.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
         viewport={{ once: true }}
-        className="space-y-14"
+        className="space-y-16"
       >
+        {/* Header */}
         <div className="text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-light-border dark:border-dark-border bg-light-card/60 dark:bg-dark-card/50 backdrop-blur-sm">
-            <span className="w-2 h-2 rounded-full bg-primary-500" aria-hidden="true" />
-            <span className="text-xs tracking-[0.18em] uppercase text-gray-700 dark:text-gray-300">Experience</span>
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-500/5 text-primary-600 dark:text-primary-400">
+            <span className="w-1.5 h-1.5 rounded-full bg-primary-500" />
+            <span className="text-xs tracking-[0.18em] uppercase">Experience</span>
           </div>
-          <h2 className="text-4xl font-bold mt-4 mb-4">Internships / Experience</h2>
-          <p className="text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            Work that’s closer to production than a portfolio: architecture decisions, real integrations, and agent-based systems.
+          <h2 className="text-4xl font-semibold mt-5">Internships & Applied Work</h2>
+          <p className="mt-4 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            Real-world engineering work with production constraints, architectural decisions, and AI-driven systems.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {/* Cards */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {experiences.map((exp, idx) => (
             <m.article
               key={`${exp.title}-${exp.role}`}
-              initial={{ opacity: 0, y: 18 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, delay: idx * 0.06 }}
+              transition={{ duration: 0.5, delay: idx * 0.07 }}
               viewport={{ once: true }}
-              className="bg-light-card dark:bg-dark-card rounded-2xl p-6 border border-light-border dark:border-dark-border relative overflow-hidden"
+              className="relative rounded-2xl p-6 bg-light-card/70 dark:bg-dark-card/60 backdrop-blur-md shadow-sm hover:shadow-md transition-shadow"
             >
-              <div className="absolute inset-y-0 left-0 w-px bg-gradient-to-b from-primary-500/40 via-primary-500/10 to-transparent" aria-hidden="true" />
-              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-white/70 via-white/20 to-transparent dark:from-white/10 dark:via-white/5" aria-hidden="true" />
+              {/* Subtle accent */}
+              <div className="absolute inset-0 rounded-2xl ring-1 ring-black/5 dark:ring-white/5 pointer-events-none" />
 
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <div className="flex items-center gap-2">
-                    <h3 className="text-xl font-bold">{exp.title}</h3>
-                    <span className={`text-xs px-2 py-0.5 rounded-full border ${exp.status === 'Current' ? 'border-primary-500/40 text-primary-700 dark:text-primary-300 bg-primary-500/10' : 'border-light-border dark:border-dark-border text-gray-600 dark:text-gray-400 bg-transparent'}`}>
+                    <h3 className="text-lg font-semibold">{exp.title}</h3>
+                    <span
+                      className={`text-[11px] px-2 py-0.5 rounded-full font-medium ${
+                        exp.status === 'Current'
+                          ? 'bg-primary-500/10 text-primary-600 dark:text-primary-400'
+                          : 'bg-gray-500/10 text-gray-600 dark:text-gray-400'
+                      }`}
+                    >
                       {exp.status}
                     </span>
                   </div>
-                  <p className="text-sm text-gray-700 dark:text-gray-300 mt-1">{exp.role}</p>
+                  <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">{exp.role}</p>
                 </div>
-                <div className="w-12 h-12 rounded-2xl bg-primary-500/10 flex items-center justify-center flex-shrink-0 border border-primary-500/15">
-                  <Briefcase className="w-5 h-5 text-primary-600 dark:text-primary-400" />
+                <div className="w-11 h-11 rounded-xl bg-primary-500/10 flex items-center justify-center">
+                  <Briefcase className="w-5 h-5 text-primary-500" />
                 </div>
               </div>
 
-              <div className="mt-5 h-px bg-light-border dark:bg-dark-border" />
-
               <div className="mt-5">
-                <div className="text-xs tracking-[0.16em] uppercase text-gray-500 dark:text-gray-400">
-                  Impact
-                </div>
-                <ul className="mt-3 space-y-2.5">
+                <div className="text-[11px] tracking-[0.16em] uppercase text-gray-500">Impact</div>
+                <ul className="mt-3 space-y-2">
                   {exp.bullets.map((b) => (
-                    <li key={b} className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
-                      <CheckCircle2 className="w-4 h-4 text-primary-600 dark:text-primary-400 mt-0.5 flex-shrink-0" />
+                    <li key={b} className="flex gap-2 text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                      <CheckCircle2 className="w-4 h-4 text-primary-500 mt-0.5 flex-shrink-0" />
                       <span>{b}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="mt-6 rounded-xl border border-light-border dark:border-dark-border bg-light-background/60 dark:bg-dark-background/40 p-4">
-                <div className="flex items-center gap-2 text-xs tracking-[0.16em] uppercase text-gray-500 dark:text-gray-400">
+              <div className="mt-6">
+                <div className="flex items-center gap-2 text-[11px] tracking-[0.16em] uppercase text-gray-500">
                   <Code2 className="w-4 h-4" /> Tech Stack
                 </div>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {exp.tech.map((t) => (
                     <span
                       key={t}
-                      className="inline-flex items-center px-2.5 py-1 rounded-full bg-white/70 dark:bg-black/20 text-gray-700 dark:text-gray-200 border border-light-border dark:border-dark-border text-xs"
+                      className="px-2.5 py-1 rounded-full text-xs bg-black/5 dark:bg-white/5 text-gray-700 dark:text-gray-300"
                     >
                       {t}
                     </span>
