@@ -232,8 +232,9 @@ export const About = () => {
 							damping: 20,
 							delay: index * 0.1
 						}}
-						className="bg-light-card dark:bg-dark-card rounded-xl p-4 border border-light-border dark:border-dark-border shadow-lg hover:shadow-xl transition-all duration-300"
+						className="relative rounded-2xl p-4 bg-light-card/70 dark:bg-dark-card/60 backdrop-blur-md shadow-sm hover:shadow-md transition-all duration-300"
 					>
+						<div className="absolute inset-0 rounded-2xl ring-1 ring-black/5 dark:ring-white/5 pointer-events-none" />
 						{/* Single Image */}
 						{item.image && (
 							<div className="mb-4 relative overflow-hidden rounded-lg">
@@ -472,8 +473,9 @@ export const About = () => {
 									delay: i * 0.1 
 								}}
 								whileHover={{ scale: 1.05 }}
-								className="text-center p-4 bg-light-card dark:bg-dark-card rounded-xl border border-light-border dark:border-dark-border hover:shadow-lg transition-all"
+								className="relative text-center p-4 rounded-2xl bg-light-card/70 dark:bg-dark-card/60 backdrop-blur-md shadow-sm hover:shadow-md transition-all"
 							>
+								<div className="absolute inset-0 rounded-2xl ring-1 ring-black/5 dark:ring-white/5 pointer-events-none" />
 								<m.div 
 									initial={{ scale: 0 }}
 									animate={{ scale: 1 }}
@@ -542,7 +544,8 @@ export const About = () => {
 											className="relative overflow-hidden rounded-xl"
 										>
 											<div className={`absolute inset-0 ${area.color} opacity-10`}></div>
-											<div className="relative bg-light-card dark:bg-dark-card rounded-xl p-6 border border-light-border dark:border-dark-border">
+											<div className="relative rounded-2xl p-6 bg-light-card/70 dark:bg-dark-card/60 backdrop-blur-md shadow-sm">
+											<div className="absolute inset-0 rounded-2xl ring-1 ring-black/5 dark:ring-white/5 pointer-events-none" />
 												<h4 className="font-bold mb-4 text-lg">{area.title}</h4>
 												<ul className="space-y-3">
 													{area.items.map((item, itemIndex) => (
@@ -601,8 +604,9 @@ export const About = () => {
 										initial={{ opacity: 0, x: -20 }}
 										animate={{ opacity: 1, x: 0 }}
 										transition={{ delay: index * 0.1 }}
-										className="bg-light-card dark:bg-dark-card rounded-xl p-6 border border-light-border dark:border-dark-border"
-									>
+									className="relative rounded-2xl p-6 bg-light-card/70 dark:bg-dark-card/60 backdrop-blur-md shadow-sm"
+								>
+									<div className="absolute inset-0 rounded-2xl ring-1 ring-black/5 dark:ring-white/5 pointer-events-none" />
 										<div className="flex justify-between items-center mb-2">
 											<span className="font-medium">{skill.name}</span>
 											<span className="text-sm text-gray-500">{skill.category}</span>
@@ -657,8 +661,9 @@ export const About = () => {
 										initial={{ opacity: 0, y: 20 }}
 										animate={{ opacity: 1, y: 0 }}
 										transition={{ delay: index * 0.1 }}
-										className="bg-light-card dark:bg-dark-card rounded-xl p-6 border border-light-border dark:border-dark-border"
+										className="relative rounded-2xl p-6 bg-light-card/70 dark:bg-dark-card/60 backdrop-blur-md shadow-sm"
 									>
+										<div className="absolute inset-0 rounded-2xl ring-1 ring-black/5 dark:ring-white/5 pointer-events-none" />
 										<div className="flex items-center justify-between mb-3">
 											<span className="text-2xl">{item.icon}</span>
 											<div className="text-right">

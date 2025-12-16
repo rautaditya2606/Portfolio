@@ -168,7 +168,8 @@ export const Contact = () => {
 						</div>
 
 						{/* Opportunities Card */}
-						<div className="mt-6 bg-gradient-to-br from-primary-50 to-purple-50 dark:from-primary-900/20 dark:to-purple-900/20 rounded-xl p-6 border border-primary-200 dark:border-primary-800">
+						<div className="relative mt-6 rounded-2xl p-6 bg-gradient-to-br from-primary-50/70 to-purple-50/70 dark:from-primary-900/20 dark:to-purple-900/20 backdrop-blur-md shadow-sm">
+							<div className="absolute inset-0 rounded-2xl ring-1 ring-primary-200/30 dark:ring-primary-800/30 pointer-events-none" />
 							<h4 className="font-semibold text-gray-900 dark:text-white mb-3">Open for Opportunities</h4>
 							<div className="grid grid-cols-2 gap-2 text-sm">
 								<div className="text-gray-600 dark:text-gray-400 flex items-center gap-2"><Check className="w-4 h-4" /> ML & MLOps</div>
