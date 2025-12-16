@@ -3,43 +3,41 @@
 import { Section } from '@/components/ui/Section'
 import { m } from 'framer-motion'
 import { useState } from 'react'
-import { 
-  Medal, 
-  Rocket, 
-  Handshake, 
-  Briefcase, 
-  Dumbbell, 
-  Scale, 
-  TrendingUp, 
-  GraduationCap,
-  BarChart3,
-  Github,
-  Star,
-  Linkedin,
-  Bot,
-  Plane,
-  Car,
-  Bike,
-  Camera,
-  X
+import {
+	Medal,
+	Rocket,
+	Handshake,
+	Dumbbell,
+	Scale,
+	TrendingUp,
+	GraduationCap,
+	BarChart3,
+	Github,
+	Star,
+	Linkedin,
+	Bot,
+	Plane,
+	Car,
+	Bike,
+	X
 } from 'lucide-react'
 
 interface Achievement {
-    title: string;
-    description: string;
-    icon: React.ReactNode;
-    category: string;
-    date: string;
-    link: string;
+	title: string;
+	description: string;
+	icon: React.ReactNode;
+	category: string;
+	date: string;
+	link: string;
 }
 
 interface TimelineItem {
-    year: string;
-    title: string;
-    description: string;
-    icon: React.ReactNode;
-    image?: string;
-    images?: string[]; // For multiple images
+	year: string;
+	title: string;
+	description: string;
+	icon: React.ReactNode;
+	image?: string;
+	images?: string[]; // For multiple images
 }
 
 const achievements: Achievement[] = [
@@ -69,15 +67,6 @@ const achievements: Achievement[] = [
 		category: 'ml',
 		date: 'Ongoing',
 		link: '#projects',
-	},
-	{
-		title: 'Industry Experience',
-		description:
-			'Secured internships and collaborations with startups for 2025',
-		icon: <Briefcase className="w-6 h-6" />,
-		category: 'experience',
-		date: '2025',
-		link: '#',
 	},
 ]
 
@@ -143,10 +132,10 @@ const personalGrowth = [
 
 const skills = [
 	{ name: 'Python', level: 90, category: 'Programming' },
-	{ name: 'JavaScript', level: 90, category: 'Programming'},
-	{ name: 'MongoDB', level: 70, category: 'Database'},
-	{ name: 'Node.js', level: 90, category: 'JS Environment'},
-	{ name: 'Express.js', level: 90, category: 'Framework'},
+	{ name: 'JavaScript', level: 90, category: 'Programming' },
+	{ name: 'MongoDB', level: 70, category: 'Database' },
+	{ name: 'Node.js', level: 90, category: 'JS Environment' },
+	{ name: 'Express.js', level: 90, category: 'Framework' },
 	{ name: 'React', level: 88, category: 'Frontend' },
 	{ name: 'Java', level: 75, category: 'Programming' },
 	{ name: 'Linear Algebra', level: 80, category: 'Mathematics' },
@@ -210,19 +199,18 @@ export const About = () => {
 				initial={{ opacity: 0, y: 20 }}
 				whileInView={{ opacity: 1, y: 0 }}
 				viewport={{ once: true, margin: "-100px" }}
-				transition={{ 
+				transition={{
 					delay: index * 0.2,
 					type: "spring",
 					stiffness: 100,
 					damping: 20
 				}}
-				className={`relative flex items-center ${
-					index % 2 === 0 ? 'justify-start' : 'justify-end'
-				} mb-24`}
+				className={`relative flex items-center ${index % 2 === 0 ? 'justify-start' : 'justify-end'
+					} mb-24`}
 			>
 				{/* Content container */}
 				<div className={`w-5/12 relative ${index % 2 === 0 ? 'text-right pr-8' : 'text-left pl-8'}`}>
-					<m.div 
+					<m.div
 						initial={{ opacity: 0, scale: 0.95 }}
 						whileInView={{ opacity: 1, scale: 1 }}
 						viewport={{ once: true }}
@@ -260,7 +248,7 @@ export const About = () => {
 								/>
 							</div>
 						)}
-						
+
 						{/* Multiple Images */}
 						{item.images && item.images.length > 0 && (
 							<div className="mb-4 relative overflow-hidden rounded-lg">
@@ -292,7 +280,7 @@ export const About = () => {
 								</div>
 							</div>
 						)}
-						
+
 						<div className="flex items-center gap-2 mb-2">
 							<span className="text-xl">{item.icon}</span>
 							<span className="font-bold text-blue-600 dark:text-blue-400">{item.year}</span>
@@ -301,9 +289,9 @@ export const About = () => {
 						<p className="text-sm text-gray-600 dark:text-gray-400">{item.description}</p>
 					</m.div>
 				</div>
-				
+
 				{/* Timeline node */}
-				<m.div 
+				<m.div
 					initial={{ scale: 0 }}
 					whileInView={{ scale: 1 }}
 					viewport={{ once: true }}
@@ -313,11 +301,11 @@ export const About = () => {
 						damping: 20,
 						delay: index * 0.2
 					}}
-												className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gradient-to-r from-[#abcdef] to-[#abcdef] rounded-full border-4 border-white dark:border-gray-900 z-10"
+					className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gradient-to-r from-[#abcdef] to-[#abcdef] rounded-full border-4 border-white dark:border-gray-900 z-10"
 				/>
-				
+
 				{/* Horizontal connector line */}
-				<m.div 
+				<m.div
 					initial={{ scaleX: 0 }}
 					whileInView={{ scaleX: 1 }}
 					viewport={{ once: true }}
@@ -327,11 +315,10 @@ export const About = () => {
 						damping: 20,
 						delay: index * 0.3
 					}}
-					className={`absolute top-1/2 -translate-y-1/2 h-0.5 origin-left ${
-						index % 2 === 0 
-							? 'right-1/2 w-[6.625rem] bg-gradient-to-l from-purple-600 to-transparent' 
+					className={`absolute top-1/2 -translate-y-1/2 h-0.5 origin-left ${index % 2 === 0
+							? 'right-1/2 w-[6.625rem] bg-gradient-to-l from-purple-600 to-transparent'
 							: 'left-1/2 w-[6.625rem] bg-gradient-to-r from-blue-500 to-transparent'
-					}`}
+						}`}
 				/>
 			</m.div>
 		)
@@ -349,7 +336,7 @@ export const About = () => {
 				>
 					{/* Big profile image placeholder */}
 					<div className="flex justify-center mb-8">
-						<div 
+						<div
 							className="relative w-40 h-40 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-gradient-to-r from-[#abcdef] to-[#abcdef] shadow-lg bg-gray-200 dark:bg-gray-700 flex items-center justify-center cursor-pointer transform transition-transform hover:scale-105"
 							onClick={() => setIsProfileModalOpen(true)}
 						>
@@ -366,7 +353,7 @@ export const About = () => {
 									}
 								}}
 							/>
-							<div className="profile-placeholder absolute inset-0 flex-col items-center justify-center text-gray-400 dark:text-gray-300 text-center select-none" style={{display: 'none'}}>
+							<div className="profile-placeholder absolute inset-0 flex-col items-center justify-center text-gray-400 dark:text-gray-300 text-center select-none" style={{ display: 'none' }}>
 								<div className="text-5xl mb-2">🖼️</div>
 								<div className="text-base font-medium">Add your profile picture</div>
 								<div className="text-xs mt-1">public/about-me-image.jpeg</div>
@@ -408,7 +395,7 @@ export const About = () => {
 
 					{/* Header with Navigation */}
 					<div className="text-center max-w-4xl mx-auto">
-						<m.h2 
+						<m.h2
 							initial={{ opacity: 0, y: 20 }}
 							whileInView={{ opacity: 1, y: 0 }}
 							viewport={{ once: true }}
@@ -417,18 +404,18 @@ export const About = () => {
 						>
 							About Me
 						</m.h2>
-						<m.p 
+						<m.p
 							initial={{ opacity: 0, y: 20 }}
 							whileInView={{ opacity: 1, y: 0 }}
 							viewport={{ once: true }}
 							transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.1 }}
 							className="text-lg text-gray-600 dark:text-gray-400 mb-8"
 						>
-							First-year Computer Science student specializing in Applied Machine Learning, 
-							MLOps, and Data Analytics. Combining technical excellence with physical discipline 
+							First-year Computer Science student specializing in Applied Machine Learning,
+							MLOps, and Data Analytics. Combining technical excellence with physical discipline
 							to build impactful solutions.
 						</m.p>
-						
+
 						{/* Tab Navigation */}
 						<div className="flex flex-wrap justify-center gap-2 mb-8">
 							{['overview', 'skills', 'timeline', 'personal'].map((tab, i) => (
@@ -438,19 +425,18 @@ export const About = () => {
 									initial={{ opacity: 0, y: 20 }}
 									whileInView={{ opacity: 1, y: 0 }}
 									viewport={{ once: true }}
-									transition={{ 
+									transition={{
 										type: "spring",
 										stiffness: 100,
 										damping: 20,
-										delay: i * 0.1 
+										delay: i * 0.1
 									}}
 									whileHover={{ scale: 1.05 }}
 									whileTap={{ scale: 0.95 }}
-									className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
-										activeTab === tab
+									className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${activeTab === tab
 											? 'bg-gradient-to-r from-[#abcdef] to-[#abcdef] text-white shadow-lg'
 											: 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
-									}`}
+										}`}
 								>
 									{tab.charAt(0).toUpperCase() + tab.slice(1)}
 								</m.button>
@@ -466,17 +452,17 @@ export const About = () => {
 								initial={{ opacity: 0, y: 20 }}
 								whileInView={{ opacity: 1, y: 0 }}
 								viewport={{ once: true }}
-								transition={{ 
+								transition={{
 									type: "spring",
 									stiffness: 100,
 									damping: 20,
-									delay: i * 0.1 
+									delay: i * 0.1
 								}}
 								whileHover={{ scale: 1.05 }}
 								className="relative text-center p-4 rounded-2xl bg-light-card/70 dark:bg-dark-card/60 backdrop-blur-md shadow-sm hover:shadow-md transition-all"
 							>
 								<div className="absolute inset-0 rounded-2xl ring-1 ring-black/5 dark:ring-white/5 pointer-events-none" />
-								<m.div 
+								<m.div
 									initial={{ scale: 0 }}
 									animate={{ scale: 1 }}
 									transition={{
@@ -513,9 +499,10 @@ export const About = () => {
 											animate={{ opacity: 1, y: 0 }}
 											transition={{ delay: index * 0.1 }}
 											whileHover={{ scale: 1.05, rotateY: 5 }}
-											className="bg-light-card dark:bg-dark-card rounded-xl p-6 border border-light-border dark:border-dark-border cursor-pointer hover:shadow-lg transition-all"
+											className="relative rounded-2xl p-6 bg-light-card/70 dark:bg-dark-card/60 backdrop-blur-md cursor-pointer shadow-sm hover:shadow-md transition-all"
 											onClick={() => setSelectedAchievement(achievement)}
 										>
+											<div className="absolute inset-0 rounded-2xl ring-1 ring-black/5 dark:ring-white/5 pointer-events-none" />
 											<div className="flex justify-between items-start mb-3">
 												<span className="text-2xl">{achievement.icon}</span>
 												<span className="text-xs bg-primary-100 dark:bg-primary-900/50 text-primary-800 dark:text-primary-200 px-2 py-1 rounded-full">
@@ -529,6 +516,24 @@ export const About = () => {
 										</m.div>
 									))}
 								</div>
+							</div>
+
+							{/* GitHub Activity Heatmap */}
+							<div>
+								<h3 className="text-2xl font-bold mb-6 text-center">Contribution Activity</h3>
+								<m.div
+									initial={{ opacity: 0, y: 20 }}
+									animate={{ opacity: 1, y: 0 }}
+									transition={{ duration: 0.5 }}
+									className="relative rounded-2xl p-6 bg-light-card/70 dark:bg-dark-card/60 backdrop-blur-md shadow-sm overflow-x-auto"
+								>
+									<div className="absolute inset-0 rounded-2xl ring-1 ring-black/5 dark:ring-white/5 pointer-events-none" />
+									<img
+										src="https://ghchart.rshah.org/b7ff2a/rautaditya2606"
+										alt="GitHub contribution calendar"
+										className="w-full min-w-[720px]"
+									/>
+								</m.div>
 							</div>
 
 							{/* Focus Areas with Gradients */}
@@ -545,7 +550,7 @@ export const About = () => {
 										>
 											<div className={`absolute inset-0 ${area.color} opacity-10`}></div>
 											<div className="relative rounded-2xl p-6 bg-light-card/70 dark:bg-dark-card/60 backdrop-blur-md shadow-sm">
-											<div className="absolute inset-0 rounded-2xl ring-1 ring-black/5 dark:ring-white/5 pointer-events-none" />
+												<div className="absolute inset-0 rounded-2xl ring-1 ring-black/5 dark:ring-white/5 pointer-events-none" />
 												<h4 className="font-bold mb-4 text-lg">{area.title}</h4>
 												<ul className="space-y-3">
 													{area.items.map((item, itemIndex) => (
@@ -604,9 +609,9 @@ export const About = () => {
 										initial={{ opacity: 0, x: -20 }}
 										animate={{ opacity: 1, x: 0 }}
 										transition={{ delay: index * 0.1 }}
-									className="relative rounded-2xl p-6 bg-light-card/70 dark:bg-dark-card/60 backdrop-blur-md shadow-sm"
-								>
-									<div className="absolute inset-0 rounded-2xl ring-1 ring-black/5 dark:ring-white/5 pointer-events-none" />
+										className="relative rounded-2xl p-6 bg-light-card/70 dark:bg-dark-card/60 backdrop-blur-md shadow-sm"
+									>
+										<div className="absolute inset-0 rounded-2xl ring-1 ring-black/5 dark:ring-white/5 pointer-events-none" />
 										<div className="flex justify-between items-center mb-2">
 											<span className="font-medium">{skill.name}</span>
 											<span className="text-sm text-gray-500">{skill.category}</span>
@@ -637,7 +642,7 @@ export const About = () => {
 							<div className="relative">
 								{/* Main vertical line */}
 								<div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-[#abcdef] to-[#abcdef]"></div>
-								
+
 								{/* Timeline items */}
 								{timeline.map((item, index) => (
 									<TimelineItem key={item.year} item={item} index={index} />
