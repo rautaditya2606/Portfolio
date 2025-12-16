@@ -518,7 +518,7 @@ export const About = () => {
 								</div>
 							</div>
 
-							{/* GitHub Activity Heatmap */}
+							{/* GitHub Activity Heatmap
 							<div>
 								<h3 className="text-2xl font-bold mb-6 text-center">Contribution Activity</h3>
 								<m.div
@@ -529,15 +529,15 @@ export const About = () => {
 								>
 									<div className="absolute inset-0 rounded-2xl ring-1 ring-black/5 dark:ring-white/5 pointer-events-none" />
 									<img
-										src="https://ghchart.rshah.org/b7ff2a/rautaditya2606"
+									src="https://ghchart.rshah.org/12100d/b7ff2a/rautaditya2606"
 										alt="GitHub contribution calendar"
 										className="w-full min-w-[720px]"
 									/>
 								</m.div>
-							</div>
+							</div> */}
 
 							{/* Focus Areas with Gradients */}
-							<div>
+							{/* <div>
 								<h3 className="text-2xl font-bold mb-6 text-center">Professional Focus</h3>
 								<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 									{focusAreas.map((area, index) => (
@@ -570,7 +570,7 @@ export const About = () => {
 										</m.div>
 									))}
 								</div>
-							</div>
+							</div> */}
 
 							{/* Interests Tags */}
 							<div>

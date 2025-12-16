@@ -39,21 +39,21 @@ export const Contact = () => {
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
 		setStatus('loading')
-		
+
 		try {
 			const formDataObj = new FormData()
 			formDataObj.append('access_key', '89cc64df-0f60-4568-903c-05e072ad22ef')
 			formDataObj.append('name', formData.name)
 			formDataObj.append('email', formData.email)
 			formDataObj.append('message', formData.message)
-			
+
 			const response = await fetch('https://api.web3forms.com/submit', {
 				method: 'POST',
 				body: formDataObj,
 			})
-			
+
 			const result = await response.json()
-			
+
 			if (result.success) {
 				setStatus('success')
 				setFormData({ name: '', email: '', message: '' })
@@ -104,7 +104,7 @@ export const Contact = () => {
 						<div className="relative rounded-2xl bg-light-card/70 dark:bg-dark-card/60 backdrop-blur-md p-8 shadow-sm h-fit">
 							<div className="absolute inset-0 rounded-2xl ring-1 ring-black/5 dark:ring-white/5 pointer-events-none" />
 							<h3 className="text-2xl font-semibold mb-8 hover:text-primary-600 dark:hover:text-primary-500 transition-colors duration-200 cursor-default">Get in Touch</h3>
-							
+
 							{/* Contact Methods */}
 							<div className="space-y-6 mb-8">
 								<div className="flex items-start space-x-4 group cursor-pointer">
@@ -172,10 +172,10 @@ export const Contact = () => {
 							<div className="absolute inset-0 rounded-2xl ring-1 ring-primary-200/30 dark:ring-primary-800/30 pointer-events-none" />
 							<h4 className="font-semibold text-gray-900 dark:text-white mb-3">Open for Opportunities</h4>
 							<div className="grid grid-cols-2 gap-2 text-sm">
-								<div className="text-gray-600 dark:text-gray-400 flex items-center gap-2"><Check className="w-4 h-4" /> ML & MLOps</div>
-<div className="text-gray-600 dark:text-gray-400 flex items-center gap-2"><Check className="w-4 h-4" /> Data Science</div>
-<div className="text-gray-600 dark:text-gray-400 flex items-center gap-2"><Check className="w-4 h-4" /> Full-Stack Dev</div>
-<div className="text-gray-600 dark:text-gray-400 flex items-center gap-2"><Check className="w-4 h-4" /> Open Source</div>
+								<div className="text-gray-600 dark:text-gray-400 flex items-center gap-2"><Check className="w-4 h-4" /> ML </div>
+								<div className="text-gray-600 dark:text-gray-400 flex items-center gap-2"><Check className="w-4 h-4" /> MLOps</div>
+								<div className="text-gray-600 dark:text-gray-400 flex items-center gap-2"><Check className="w-4 h-4" /> GenAI</div>
+								<div className="text-gray-600 dark:text-gray-400 flex items-center gap-2"><Check className="w-4 h-4" /> Open Source</div>
 							</div>
 						</div>
 					</m.div>
@@ -187,11 +187,11 @@ export const Contact = () => {
 						transition={{ duration: 0.5 }}
 						viewport={{ once: true }}
 						className="lg:col-span-2"
-				>
-					<div className="relative rounded-2xl bg-light-card/70 dark:bg-dark-card/60 backdrop-blur-md p-8 shadow-sm">
-						<div className="absolute inset-0 rounded-2xl ring-1 ring-black/5 dark:ring-white/5 pointer-events-none" />
-						<div className="mb-8">
-							<h3 className="text-2xl font-semibold mb-2 hover:text-primary-600 dark:hover:text-primary-500 transition-colors duration-200 cursor-default">Send a Message</h3>
+					>
+						<div className="relative rounded-2xl bg-light-card/70 dark:bg-dark-card/60 backdrop-blur-md p-8 shadow-sm">
+							<div className="absolute inset-0 rounded-2xl ring-1 ring-black/5 dark:ring-white/5 pointer-events-none" />
+							<div className="mb-8">
+								<h3 className="text-2xl font-semibold mb-2 hover:text-primary-600 dark:hover:text-primary-500 transition-colors duration-200 cursor-default">Send a Message</h3>
 								<p className="text-gray-600 dark:text-gray-400">
 									Tell me about your project, collaboration idea, or just drop a hello.
 								</p>
