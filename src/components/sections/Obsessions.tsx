@@ -156,7 +156,7 @@ export const Obsessions = () => {
 	}, [])
 
 	return (
-		<Section id="obsession" className="py-20 relative overflow-hidden">
+		<Section id="obsession" className="py-24 relative overflow-hidden">
 			{/* Background */}
 			<div className="absolute inset-0 bg-light-background dark:bg-dark-background" />
 
@@ -173,11 +173,15 @@ export const Obsessions = () => {
 					transition={{ duration: 0.5 }}
 					viewport={{ once: true }}
 				>
-					<m.h2 className="text-5xl font-bold mb-6 relative inline-block text-white">
+					<div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-500/5 text-primary-600 dark:text-primary-400 mb-5">
+						<span className="w-1.5 h-1.5 rounded-full bg-primary-500" />
+						<span className="text-xs tracking-[0.18em] uppercase">Passions</span>
+					</div>
+					<m.h2 className="text-4xl font-semibold mb-4 text-gray-900 dark:text-white">
 						Beyond Tech
 					</m.h2>
 					<m.p
-						className="text-gray-600 dark:text-gray-400 text-xl max-w-3xl mx-auto leading-relaxed"
+						className="text-gray-600 dark:text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed"
 						initial={{ opacity: 0, y: 20 }}
 						whileInView={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.5, delay: 0.1 }}
@@ -206,19 +210,21 @@ export const Obsessions = () => {
 							}
 						>
 							<m.div
-								className="bg-light-card dark:bg-dark-card rounded-3xl p-6 border border-light-border dark:border-dark-border hover:border-transparent transition-all duration-500 relative overflow-hidden backdrop-blur-sm"
+								className="relative rounded-2xl p-6 bg-light-card/70 dark:bg-dark-card/60 backdrop-blur-md border-transparent hover:border-transparent transition-all duration-500 overflow-hidden"
 								whileHover={{
 									y: -8,
 									boxShadow:
-										'0 20px 40px rgba(0,0,0,0.1), 0 0 0 1px rgba(59,130,246,0.3)',
+										'0 20px 40px rgba(0,0,0,0.1)',
 								}}
 								animate={{
 									boxShadow:
 										hoveredIndex === index
-											? '0 25px 50px rgba(0,0,0,0.15), 0 0 0 1px rgba(147,51,234,0.3)'
+											? '0 25px 50px rgba(0,0,0,0.15)'
 											: '0 4px 6px rgba(0,0,0,0.05)',
 								}}
 							>
+								{/* Subtle ring */}
+								<div className="absolute inset-0 rounded-2xl ring-1 ring-black/5 dark:ring-white/5 pointer-events-none" />
 								{/* Gradient overlay */}
 								<div
 									className={`absolute inset-0 bg-gradient-to-br ${obsession.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}

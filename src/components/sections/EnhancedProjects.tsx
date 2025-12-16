@@ -171,15 +171,19 @@ export default function ProfessionalPortfolio() {
 	const currentProject = projects[selectedProject] || projects[0]
 
 	return (
-		<section id="projects" className="min-h-screen py-16 dark:bg-dark-background bg-light-background transition-colors duration-300">
+		<section id="projects" className="min-h-screen py-24 dark:bg-dark-background bg-light-background transition-colors duration-300">
 			<div className="max-w-7xl mx-auto px-6">
 				{/* Header */}
-				<header className="text-center mb-12">
-					<h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-						Featured Projects
+				<header className="text-center mb-16">
+					<div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-500/5 text-primary-600 dark:text-primary-400 mb-5">
+						<span className="w-1.5 h-1.5 rounded-full bg-primary-500" />
+						<span className="text-xs tracking-[0.18em] uppercase">Projects</span>
+					</div>
+					<h1 className="text-4xl font-semibold text-gray-900 dark:text-white mb-4">
+						Featured Work
 					</h1>
-					<p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-						A showcase of full-stack development and machine learning projects demonstrating technical proficiency and problem-solving capabilities.
+					<p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+						Full-stack applications and machine learning systems built for real-world impact.
 					</p>
 				</header>
 
@@ -187,7 +191,8 @@ export default function ProfessionalPortfolio() {
 				<div className="grid lg:grid-cols-3 gap-8">
 					{/* Project Navigation */}
 					<div className="lg:col-span-1">
-						<div className="dark:bg-dark-card bg-light-card rounded-xl shadow-sm dark:border-dark-border border p-6 sticky top-8">
+						<div className="relative rounded-2xl bg-light-card/70 dark:bg-dark-card/60 backdrop-blur-md shadow-sm p-6 sticky top-8">
+							<div className="absolute inset-0 rounded-2xl ring-1 ring-black/5 dark:ring-white/5 pointer-events-none" />
 							<h3 className="text-lg font-semibold dark:text-white text-gray-900 mb-4">
 								Projects ({projects.length})
 							</h3>
@@ -198,8 +203,8 @@ export default function ProfessionalPortfolio() {
 										onClick={() => handleProjectChange(index)}
 										className={`w-full text-left p-3 rounded-lg transition-all duration-200 ${
 											selectedProject === index
-												? 'bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-600 text-blue-900 dark:text-blue-300'
-												: 'hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300'
+												? 'bg-primary-500/10 border-l-4 border-primary-600 text-primary-900 dark:text-primary-300'
+												: 'hover:bg-gray-100/50 dark:hover:bg-gray-800/50 text-gray-700 dark:text-gray-300'
 										}`}
 									>
 										<div className="font-medium">{project.name}</div>
@@ -212,9 +217,10 @@ export default function ProfessionalPortfolio() {
 
 					{/* Project Details */}
 					<div className="lg:col-span-2">
-						{currentProject && (
-							<div className={`dark:bg-dark-card bg-light-card rounded-xl shadow-sm dark:border-dark-border border overflow-hidden transition-all duration-300 ${
+						{currentProject &&relative rounded-2xl bg-light-card/70 dark:bg-dark-card/60 backdrop-blur-md shadow-sm overflow-hidden transition-all duration-300 ${
 								isAnimating ? 'opacity-50 scale-95' : 'opacity-100 scale-100'
+							}`}>
+								<div className="absolute inset-0 rounded-2xl ring-1 ring-black/5 dark:ring-white/5 pointer-events-none" /Animating ? 'opacity-50 scale-95' : 'opacity-100 scale-100'
 							}`}>
 								{/* Project Header */}
 								<div className="p-8 border-b dark:border-dark-border">
