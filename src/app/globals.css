@@ -1,35 +1,108 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Story: "field notes" — warm paper, ink, avionics accent */
+  --background: #f6f0e6;
+  --foreground: #14110e;
+
+  --card: rgba(255, 255, 255, 0.65);
+  --border: rgba(20, 17, 14, 0.16);
+  --muted: rgba(20, 17, 14, 0.68);
+
+  --primary: #b7ff2a;
+  --primary-rgb: 183, 255, 42;
+
+  --background-rgb: 246, 240, 230;
+  --foreground-rgb: 20, 17, 14;
+
+  --ring: rgba(var(--primary-rgb), 0.85);
+  --ring-offset: rgba(var(--background-rgb), 1);
+
   --navbar-height: 64px;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-text);
+  --font-mono: var(--font-mono);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #090806;
+    --foreground: #f2ede3;
+
+    --card: rgba(18, 16, 13, 0.62);
+    --border: rgba(242, 237, 227, 0.12);
+    --muted: rgba(242, 237, 227, 0.72);
+
+    --background-rgb: 9, 8, 6;
+    --foreground-rgb: 242, 237, 227;
+
+    --ring-offset: rgba(var(--background-rgb), 1);
   }
 }
 
 /* Dark mode override */
 .dark {
-  --background: #0a0a0a;
-  --foreground: #ededed;
+  --background: #090806;
+  --foreground: #f2ede3;
+
+  --card: rgba(18, 16, 13, 0.62);
+  --border: rgba(242, 237, 227, 0.12);
+  --muted: rgba(242, 237, 227, 0.72);
+
+  --background-rgb: 9, 8, 6;
+  --foreground-rgb: 242, 237, 227;
+
+  --ring-offset: rgba(var(--background-rgb), 1);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-text), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  text-rendering: geometricPrecision;
+}
+
+/* Editorial hierarchy */
+h1, h2, h3 {
+  font-family: var(--font-display), ui-serif, Georgia, serif;
+  letter-spacing: -0.02em;
+}
+
+a {
+  text-underline-offset: 0.18em;
+}
+
+::selection {
+  background: rgba(var(--primary-rgb), 0.28);
+  color: var(--foreground);
+}
+
+/* Atmosphere layer: grid + grain (felt, not noticed) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background-image:
+    radial-gradient(900px 600px at 15% 10%, rgba(var(--primary-rgb), 0.16), transparent 60%),
+    radial-gradient(800px 520px at 85% 70%, rgba(var(--foreground-rgb), 0.10), transparent 62%),
+    linear-gradient(to right, rgba(var(--foreground-rgb), 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(var(--foreground-rgb), 0.07) 1px, transparent 1px),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.28'/%3E%3C/svg%3E");
+  background-size: auto, auto, 72px 72px, 72px 72px, 160px 160px;
+  background-position: center, center, center, center, center;
+  opacity: 0.55;
+  mix-blend-mode: multiply;
+}
+
+.dark body::before {
+  opacity: 0.38;
+  mix-blend-mode: screen;
 }
 
 /* Project Section Styles */
@@ -100,7 +173,7 @@ body {
 }
 
 .projects-container button:focus-visible {
-  box-shadow: 0 0 0 2px var(--background), 0 0 0 4px var(--primary);
+  box-shadow: 0 0 0 2px var(--ring-offset), 0 0 0 4px var(--ring);
 }
 
 /* Navigation arrows hover effect */

@@ -1,19 +1,27 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Fraunces, Instrument_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { AnimationProvider } from '@/providers/AnimationProvider';
 import { ThemeProvider } from '@/providers/ThemeProvider';
 import { CustomCursor } from '@/components/ui/CustomCursor';
 import { Navigation } from '@/components/Navigation';
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const display = Fraunces({
+  variable: "--font-display",
   subsets: ["latin"],
+  weight: ["400", "600", "700", "900"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const text = Instrument_Sans({
+  variable: "--font-text",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
+const mono = IBM_Plex_Mono({
+  variable: "--font-mono",
+  subsets: ["latin"],
+  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
@@ -56,7 +64,7 @@ export default function RootLayout({
         {/* Theme script removed - now handled by ThemeProvider */}
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-light-background dark:bg-dark-background text-gray-900 dark:text-gray-100 transition-colors duration-300`}
+        className={`${display.variable} ${text.variable} ${mono.variable} antialiased bg-light-background dark:bg-dark-background text-gray-900 dark:text-gray-100 transition-colors duration-300`}
       >
         <ThemeProvider>
           <AnimationProvider>
