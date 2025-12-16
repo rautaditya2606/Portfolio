@@ -62,13 +62,13 @@ const achievements: Achievement[] = [
 		link: '#projects',
 	},
 	{
-		title: '900+ LinkedIn Connections',
+		title: '10+ Machine Learning & Deep Learning Projects',
 		description:
-			'Building a strong professional network in tech and data science',
-		icon: <Handshake className="w-6 h-6" />,
-		category: 'network',
-		date: '2025',
-		link: 'https://linkedin.com',
+			'Built and experimented across ML pipelines, model training, and practical deployments',
+		icon: <Bot className="w-6 h-6" />,
+		category: 'ml',
+		date: 'Ongoing',
+		link: '#projects',
 	},
 	{
 		title: 'Industry Experience',
@@ -185,8 +185,8 @@ const timeline = [
 ]
 
 const stats = [
-	{ label: 'Total Internships', value: '2', icon: <BarChart3 className="w-6 h-6" /> },
-	{ label: 'Github Repos', value: '21', icon: <Github className="w-6 h-6" /> },
+	{ label: 'Total Internships', value: '3', icon: <BarChart3 className="w-6 h-6" /> },
+	{ label: 'Github Repos', value: '57', icon: <Github className="w-6 h-6" /> },
 	{ label: 'Projects Completed', value: '10+', icon: <Star className="w-6 h-6" /> },
 	{ label: 'LinkedIn Connections', value: '900+', icon: <Linkedin className="w-6 h-6" /> },
 ]

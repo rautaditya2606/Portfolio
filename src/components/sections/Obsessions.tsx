@@ -35,15 +35,12 @@ const obsessions: ObsessionItem[] = [
 		icon: <Car className="w-8 h-8" />,
 		details: [],
 		stats: [
-			{ label: 'Favorite Car', value: 'Ferrari F40' },
-			{ label: 'Dream Bike', value: 'Ducati Panigale V4R' },
-			{ label: 'Top Speed', value: '324 km/h' },
-			{ label: 'Cylinders', value: 'V8 Twin Turbo' },
+			{ label: 'Favorite Car', value: 'De Tomaso P72' },
+			{ label: 'Dream Bike', value: 'Ducati Superleggera V4' },
 		],
 		bgImage: '/images/automotive-bg.jpg',
 		color: 'from-[#abcdef] to-[#abcdef]',
 		achievements: [
-			{ title: 'Motorcycle License', value: 'Obtained' },
 			{ title: 'Car Enthusiast', value: 'Expert' }
 		],
 		funFact: 'Can identify car models by engine sound alone',
@@ -55,8 +52,8 @@ const obsessions: ObsessionItem[] = [
 		icon: <Plane className="w-8 h-8" />,
 		details: [],
 		stats: [
-			{ label: 'Favorite Jet', value: 'Marut' },
-			{ label: 'Dream Flight', value: 'Mach 2+ Speed' },
+			{ label: 'Favorite Jet', value: 'SR-72 Blackbird' },
+			{ label: 'Dream Flight', value: 'A350-900' },
 			{ label: 'Ceiling', value: '65,000 ft' },
 		],
 		bgImage: '/images/aviation-bg.jpg',
@@ -77,7 +74,6 @@ const obsessions: ObsessionItem[] = [
 			{ label: 'Favorite Planet', value: 'Saturn' },
 			{ label: 'Telescope', value: 'Phoenix 60700' },
 			{ label: 'Magnification', value: '175x Max' },
-			{ label: 'Objects Observed', value: '200+ DSOs' },
 		],
 		bgImage: '/images/astronomy-bg.jpg',
 		color: 'from-purple-500 to-indigo-600',

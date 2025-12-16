@@ -383,5 +383,50 @@
     "language": "en-US",
     "screenResolution": "1920x1080",
     "timezone": "Asia/Calcutta"
+  },
+  {
+    "ip": "::1",
+    "userAgent": "Mozilla/5.0 (Linux; Android 13; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Mobile Safari/537.36",
+    "os": "Linux",
+    "device": "Mobile",
+    "timestamp": "2025-12-16T16:55:14.129Z",
+    "date": "December 16, 2025",
+    "time": "10:25:14 PM GMT+5:30",
+    "linkClicked": "http://localhost:8080/",
+    "referrer": "http://localhost:8080/",
+    "pageTitle": "Aditya // Code",
+    "language": "en-US",
+    "screenResolution": "1680x1050",
+    "timezone": "Asia/Calcutta"
+  },
+  {
+    "ip": "::1",
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+    "os": "Linux",
+    "device": "Desktop",
+    "timestamp": "2025-12-16T17:07:39.865Z",
+    "date": "December 16, 2025",
+    "time": "10:37:39 PM GMT+5:30",
+    "linkClicked": "http://localhost:8080/",
+    "referrer": "Direct Visit",
+    "pageTitle": "Aditya // Code",
+    "language": "en-US",
+    "screenResolution": "1920x1080",
+    "timezone": "Asia/Calcutta"
+  },
+  {
+    "ip": "::1",
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+    "os": "Linux",
+    "device": "Desktop",
+    "timestamp": "2025-12-16T17:08:38.121Z",
+    "date": "December 16, 2025",
+    "time": "10:38:38 PM GMT+5:30",
+    "linkClicked": "http://localhost:8080/",
+    "referrer": "Direct Visit",
+    "pageTitle": "Aditya // Code",
+    "language": "en-US",
+    "screenResolution": "1920x1080",
+    "timezone": "Asia/Calcutta"
   }
 ]

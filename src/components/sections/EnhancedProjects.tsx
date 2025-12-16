@@ -4,6 +4,20 @@ import { useState, useCallback } from 'react'
 
 const projects = [
 	{
+		name: 'Wheat Disease Classifier',
+		type: 'Deep Learning Image Classification Web App',
+		description: 'A web application that uses deep learning to identify wheat diseases from images of wheat crops and leaves.',
+		techStack: ['ResNet50', 'Deep Learning', 'Image Classification', 'Web App'],
+		highlights: [
+			'Upload images of wheat crops or leaves',
+			'Get instant predictions about potential diseases',
+			'View confidence scores for predictions',
+			'Fine-tuned ResNet50 model identifying 15 wheat conditions',
+		],
+		achievement: '15-Class Image Classifier',
+		featured: true
+	},
+	{
 		name: 'Rossmann Store Sales Predictor',
 		type: 'Store Sales Prediction System',
 		description: 'Predicts store sales using historical data with XGBoost algorithm. Features comprehensive feature engineering and time-series decomposition for accurate sales forecasting with Flask deployment.',
@@ -118,6 +132,7 @@ const projects = [
 
 // Add a mapping for project name to repo URL
 const projectRepoLinks: Record<string, string> = {
+	'Wheat Disease Classifier': 'https://github.com/rautaditya2606/wheat_detection',
 	'Rossmann Store Sales Predictor': 'https://github.com/rautaditya2606/Rossman-Deployed',
 	'New York Taxi Fare Predictor': 'https://github.com/rautaditya2606/NY_TAXi_Fare',
 	'Credit Card Fraud Detection': 'https://github.com/rautaditya2606/Credt_Card_Fraud_Detection',
@@ -129,6 +144,7 @@ const projectRepoLinks: Record<string, string> = {
 
 // Add a mapping for project name to live website URL
 const projectLiveLinks: Record<string, string> = {
+	'Wheat Disease Classifier': 'https://wheat-detection-1.onrender.com/',
 	'Rossmann Store Sales Predictor': 'https://rossman-deployed.onrender.com/',
 	'NestNow': 'https://nestnow-045h.onrender.com',
 	'NPSP': 'https://npsp-5ffx.onrender.com/language',

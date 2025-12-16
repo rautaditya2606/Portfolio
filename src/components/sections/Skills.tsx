@@ -2,7 +2,7 @@
 
 import { Section } from '@/components/ui/Section'
 import { m } from 'framer-motion'
-import { Code, Globe, Wrench } from 'lucide-react'
+import { Bot, Code, Globe, Wrench } from 'lucide-react'
 
 const skillCategories = [
 	{
@@ -100,6 +100,37 @@ const skillCategories = [
 				name: 'Postman',
 				level: 'Intermediate',
 				details: 'API Testing & Development',
+			},
+		],
+	},
+	{
+		title: 'Machine Learning & Deep Learning',
+		icon: <Bot className="w-6 h-6" />,
+		skills: [
+			{
+				name: 'PyTorch',
+				level: 'Intermediate',
+				details: 'Model training, fine-tuning, computer vision',
+			},
+			{
+				name: 'Scikit-Learn',
+				level: 'Advanced',
+				details: 'Classical ML, pipelines, evaluation',
+			},
+			{
+				name: 'Pandas',
+				level: 'Intermediate',
+				details: 'Data cleaning and feature prep',
+			},
+			{
+				name: 'NumPy',
+				level: 'Intermediate',
+				details: 'Numerical computing foundations',
+			},
+			{
+				name: 'Matplotlib',
+				level: 'Intermediate',
+				details: 'Exploratory visuals and diagnostics',
 			},
 		],
 	},
