@@ -217,11 +217,11 @@ export default function ProfessionalPortfolio() {
 
 					{/* Project Details */}
 					<div className="lg:col-span-2">
-						{currentProject &&relative rounded-2xl bg-light-card/70 dark:bg-dark-card/60 backdrop-blur-md shadow-sm overflow-hidden transition-all duration-300 ${
-								isAnimating ? 'opacity-50 scale-95' : 'opacity-100 scale-100'
-							}`}>
-								<div className="absolute inset-0 rounded-2xl ring-1 ring-black/5 dark:ring-white/5 pointer-events-none" /Animating ? 'opacity-50 scale-95' : 'opacity-100 scale-100'
-							}`}>
+					{currentProject && (
+						<div className={`relative rounded-2xl bg-light-card/70 dark:bg-dark-card/60 backdrop-blur-md shadow-sm overflow-hidden transition-all duration-300 ${
+							isAnimating ? 'opacity-50 scale-95' : 'opacity-100 scale-100'
+						}`}>
+							<div className="absolute inset-0 rounded-2xl ring-1 ring-black/5 dark:ring-white/5 pointer-events-none" />
 								{/* Project Header */}
 								<div className="p-8 border-b dark:border-dark-border">
 									<div className="flex items-start justify-between mb-4">

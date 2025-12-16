@@ -186,11 +186,11 @@ export const Contact = () => {
 						transition={{ duration: 0.5 }}
 						viewport={{ once: true }}
 						className="lg:col-span-2"
-					>relative rounded-2xl bg-light-card/70 dark:bg-dark-card/60 backdrop-blur-md p-8 shadow-sm">
-							<div className="absolute inset-0 rounded-2xl ring-1 ring-black/5 dark:ring-white/5 pointer-events-none" />
-							<div className="mb-8">
-								<h3 className="text-2xl font-semi
-								<h3 className="text-2xl font-bold mb-2 hover:text-primary-600 dark:hover:text-primary-500 transition-colors duration-200 cursor-default">Send a Message</h3>
+				>
+					<div className="relative rounded-2xl bg-light-card/70 dark:bg-dark-card/60 backdrop-blur-md p-8 shadow-sm">
+						<div className="absolute inset-0 rounded-2xl ring-1 ring-black/5 dark:ring-white/5 pointer-events-none" />
+						<div className="mb-8">
+							<h3 className="text-2xl font-semibold mb-2 hover:text-primary-600 dark:hover:text-primary-500 transition-colors duration-200 cursor-default">Send a Message</h3>
 								<p className="text-gray-600 dark:text-gray-400">
 									Tell me about your project, collaboration idea, or just drop a hello.
 								</p>

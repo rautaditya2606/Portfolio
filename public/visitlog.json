@@ -473,5 +473,20 @@
     "language": "en-US",
     "screenResolution": "1920x1080",
     "timezone": "Asia/Calcutta"
+  },
+  {
+    "ip": "::1",
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+    "os": "Linux",
+    "device": "Desktop",
+    "timestamp": "2025-12-16T18:15:12.369Z",
+    "date": "December 16, 2025",
+    "time": "11:45:12 PM GMT+5:30",
+    "linkClicked": "http://localhost:8080/",
+    "referrer": "Direct Visit",
+    "pageTitle": "Aditya // Code",
+    "language": "en-US",
+    "screenResolution": "1920x1080",
+    "timezone": "Asia/Calcutta"
   }
 ]
