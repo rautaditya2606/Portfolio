@@ -24,13 +24,13 @@ const config: Config = {
         },
         dark: {
           background: '#090806',
-          card: 'rgba(18, 16, 13, 0.62)',
-          border: 'rgba(242, 237, 227, 0.12)',
+          card: '#12100d',
+          border: 'rgba(242, 237, 227, 0.10)',
         },
         light: {
           background: '#f6f0e6',
-          card: 'rgba(255, 255, 255, 0.65)',
-          border: 'rgba(20, 17, 14, 0.16)',
+          card: '#fbfaf7',
+          border: 'rgba(20, 17, 14, 0.10)',
         },
       },
       animation: {

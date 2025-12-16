@@ -40,7 +40,7 @@ export default function RpStylePage() {
             An editorial-tech interface for building a request on the left and reading the exact API call on the right.
             It’s calm, physical, and deliberate — like a lab notebook, not a dashboard.
             {' '}
-            <a className="rp-link" href="#" onClick={(e) => e.preventDefault()}>
+            <a className="rp-link" href="https://example.com" target="_blank" rel="noreferrer">
               Docs
             </a>
             .

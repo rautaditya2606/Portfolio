@@ -6,33 +6,33 @@ import { Bot, Code, Globe, Wrench } from 'lucide-react'
 
 const skillCategories = [
 	{
-		title: 'Programming Languages',
-		icon: <Code className="w-6 h-6" />,
+		title: 'Machine Learning & Deep Learning',
+		icon: <Bot className="w-6 h-6" />,
 		skills: [
 			{
-				name: 'Python',
+				name: 'PyTorch',
 				level: 'Intermediate',
-				details: 'Data Science, ML, Backend Development',
+				details: 'Model training, fine-tuning, computer vision',
 			},
 			{
-				name: 'Java',
-				level: 'Intermediate',
-				details: 'DSA & Backend Development',
-			},
-			{
-				name: 'TypeScript',
-				level: 'Intermediate',
-				details: 'Type-safe Web Development',
-			},
-			{
-				name: 'JavaScript',
-				level: 'Intermediate',
-				details: 'Full-Stack Web Development',
-			},
-			{
-				name: 'HTML5 & CSS3',
+				name: 'Scikit-Learn',
 				level: 'Advanced',
-				details: 'Modern Web Development',
+				details: 'Classical ML, pipelines, evaluation',
+			},
+			{
+				name: 'Pandas',
+				level: 'Intermediate',
+				details: 'Data cleaning and feature prep',
+			},
+			{
+				name: 'NumPy',
+				level: 'Intermediate',
+				details: 'Numerical computing foundations',
+			},
+			{
+				name: 'Matplotlib',
+				level: 'Intermediate',
+				details: 'Exploratory visuals and diagnostics',
 			},
 		],
 	},
@@ -104,33 +104,33 @@ const skillCategories = [
 		],
 	},
 	{
-		title: 'Machine Learning & Deep Learning',
-		icon: <Bot className="w-6 h-6" />,
+		title: 'Programming Languages',
+		icon: <Code className="w-6 h-6" />,
 		skills: [
 			{
-				name: 'PyTorch',
+				name: 'Python',
 				level: 'Intermediate',
-				details: 'Model training, fine-tuning, computer vision',
+				details: 'Data Science, ML, Backend Development',
 			},
 			{
-				name: 'Scikit-Learn',
+				name: 'Java',
+				level: 'Intermediate',
+				details: 'DSA & Backend Development',
+			},
+			{
+				name: 'TypeScript',
+				level: 'Intermediate',
+				details: 'Type-safe Web Development',
+			},
+			{
+				name: 'JavaScript',
+				level: 'Intermediate',
+				details: 'Full-Stack Web Development',
+			},
+			{
+				name: 'HTML5 & CSS3',
 				level: 'Advanced',
-				details: 'Classical ML, pipelines, evaluation',
-			},
-			{
-				name: 'Pandas',
-				level: 'Intermediate',
-				details: 'Data cleaning and feature prep',
-			},
-			{
-				name: 'NumPy',
-				level: 'Intermediate',
-				details: 'Numerical computing foundations',
-			},
-			{
-				name: 'Matplotlib',
-				level: 'Intermediate',
-				details: 'Exploratory visuals and diagnostics',
+				details: 'Modern Web Development',
 			},
 		],
 	},

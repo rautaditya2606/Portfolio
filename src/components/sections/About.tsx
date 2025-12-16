@@ -187,7 +187,7 @@ const timeline = [
 const stats = [
 	{ label: 'Total Internships', value: '3', icon: <BarChart3 className="w-6 h-6" /> },
 	{ label: 'Github Repos', value: '57', icon: <Github className="w-6 h-6" /> },
-	{ label: 'Projects Completed', value: '10+', icon: <Star className="w-6 h-6" /> },
+	{ label: 'Projects Completed', value: '20+', icon: <Star className="w-6 h-6" /> },
 	{ label: 'LinkedIn Connections', value: '900+', icon: <Linkedin className="w-6 h-6" /> },
 ]
 
