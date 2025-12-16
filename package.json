@@ -14,7 +14,7 @@
     "clsx": "^2.1.1",
     "framer-motion": "^12.18.1",
     "lucide-react": "^0.525.0",
-    "next": "15.3.3",
+    "next": "15.3.8",
     "nodemailer": "^7.0.3",
     "plausible-tracker": "^0.3.9",
     "react": "^19.0.0",
