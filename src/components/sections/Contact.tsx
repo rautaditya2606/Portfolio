@@ -85,8 +85,8 @@ export const Contact = () => {
 						<span className="w-1.5 h-1.5 rounded-full bg-primary-500" />
 						<span className="text-xs tracking-[0.18em] uppercase">Contact</span>
 					</div>
-					<h2 className="text-4xl font-semibold mb-4">Let's Connect</h2>
-					<p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
+					<h2 className="text-3xl md:text-4xl font-semibold mb-4">Let's Connect</h2>
+					<p className="text-gray-600 dark:text-gray-400 text-base md:text-lg max-w-2xl mx-auto px-4">
 						Ready to discuss your next project or just want to say hello? I&apos;m always open to new opportunities and collaborations.
 					</p>
 				</m.div>
@@ -101,9 +101,9 @@ export const Contact = () => {
 						viewport={{ once: true }}
 						className="lg:col-span-1"
 					>
-						<div className="relative rounded-2xl bg-light-card/70 dark:bg-dark-card/60 backdrop-blur-md p-8 shadow-sm h-fit">
-							<div className="absolute inset-0 rounded-2xl ring-1 ring-black/5 dark:ring-white/5 pointer-events-none" />
-							<h3 className="text-2xl font-semibold mb-8 hover:text-primary-600 dark:hover:text-primary-500 transition-colors duration-200 cursor-default">Get in Touch</h3>
+<div className="relative rounded-2xl bg-light-card/70 dark:bg-dark-card/60 backdrop-blur-md p-6 md:p-8 shadow-sm h-fit">
+						<div className="absolute inset-0 rounded-2xl ring-1 ring-black/5 dark:ring-white/5 pointer-events-none" />
+						<h3 className="text-xl md:text-2xl font-semibold mb-6 md:mb-8 hover:text-primary-600 dark:hover:text-primary-500 transition-colors duration-200 cursor-default">Get in Touch</h3>
 
 							{/* Contact Methods */}
 							<div className="space-y-6 mb-8">

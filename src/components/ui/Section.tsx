@@ -31,7 +31,7 @@ export const Section = ({ children, className, fullHeight = false, ...props }: S
       viewport={{ once: true, margin: '-100px' }}
       variants={variants}
       className={cn(
-        'w-full px-4 py-16 md:px-8 lg:px-16',
+        'w-full px-4 py-12 md:px-8 md:py-16 lg:px-16 lg:py-20',
         fullHeight && 'h-[100dvh] flex flex-col',
         className
       )}

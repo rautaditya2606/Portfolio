@@ -152,7 +152,7 @@ export const Skills = () => {
 						<span className="w-1.5 h-1.5 rounded-full bg-primary-500" />
 						<span className="text-xs tracking-[0.18em] uppercase">Skills</span>
 					</div>
-					<h2 className="text-4xl font-semibold mt-5">Technical Stack</h2>
+					<h2 className="text-3xl md:text-4xl font-semibold mt-5">Technical Stack</h2>
 					<p className="mt-4 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
 						Tools, languages, and frameworks I use to build data-driven applications and ML systems.
 					</p>
@@ -167,7 +167,7 @@ export const Skills = () => {
 							whileInView={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.5, delay: categoryIndex * 0.07 }}
 							viewport={{ once: true }}
-							className="relative rounded-2xl p-6 bg-light-card/70 dark:bg-dark-card/60 backdrop-blur-md shadow-sm hover:shadow-md transition-shadow"
+							className="relative rounded-2xl p-4 md:p-6 bg-light-card/70 dark:bg-dark-card/60 backdrop-blur-md shadow-sm hover:shadow-md transition-shadow"
 						>
 							{/* Subtle ring */}
 							<div className="absolute inset-0 rounded-2xl ring-1 ring-black/5 dark:ring-white/5 pointer-events-none" />

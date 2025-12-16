@@ -400,7 +400,7 @@ export const About = () => {
 							whileInView={{ opacity: 1, y: 0 }}
 							viewport={{ once: true }}
 							transition={{ type: "spring", stiffness: 100, damping: 20 }}
-							className="text-4xl font-bold mb-6 bg-gradient-to-r from-primary-500 to-primary-700 bg-clip-text text-transparent"
+						className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-primary-500 to-primary-700 bg-clip-text text-transparent"
 						>
 							About Me
 						</m.h2>
@@ -409,7 +409,7 @@ export const About = () => {
 							whileInView={{ opacity: 1, y: 0 }}
 							viewport={{ once: true }}
 							transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.1 }}
-							className="text-lg text-gray-600 dark:text-gray-400 mb-8"
+						className="text-base md:text-lg text-gray-600 dark:text-gray-400 mb-8"
 						>
 							First-year Computer Science student specializing in Applied Machine Learning,
 							MLOps, and Data Analytics. Combining technical excellence with physical discipline
@@ -433,7 +433,7 @@ export const About = () => {
 									}}
 									whileHover={{ scale: 1.05 }}
 									whileTap={{ scale: 0.95 }}
-									className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${activeTab === tab
+									className={`px-4 py-2 md:px-6 md:py-2 rounded-full font-medium transition-all duration-300 text-sm md:text-base ${activeTab === tab
 											? 'bg-gradient-to-r from-[#abcdef] to-[#abcdef] text-white shadow-lg'
 											: 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
 										}`}
@@ -445,7 +445,7 @@ export const About = () => {
 					</div>
 
 					{/* Quick Stats */}
-					<div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+					<div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-12">
 						{stats.map((stat, i) => (
 							<m.div
 								key={stat.label}
@@ -459,7 +459,7 @@ export const About = () => {
 									delay: i * 0.1
 								}}
 								whileHover={{ scale: 1.05 }}
-								className="relative text-center p-4 rounded-2xl bg-light-card/70 dark:bg-dark-card/60 backdrop-blur-md shadow-sm hover:shadow-md transition-all"
+								className="relative rounded-2xl p-4 md:p-6 bg-light-card/70 dark:bg-dark-card/60 backdrop-blur-md shadow-sm hover:shadow-md transition-all"
 							>
 								<div className="absolute inset-0 rounded-2xl ring-1 ring-black/5 dark:ring-white/5 pointer-events-none" />
 								<m.div
@@ -499,7 +499,7 @@ export const About = () => {
 											animate={{ opacity: 1, y: 0 }}
 											transition={{ delay: index * 0.1 }}
 											whileHover={{ scale: 1.05, rotateY: 5 }}
-											className="relative rounded-2xl p-6 bg-light-card/70 dark:bg-dark-card/60 backdrop-blur-md cursor-pointer shadow-sm hover:shadow-md transition-all"
+										className="relative rounded-2xl p-4 md:p-6 bg-light-card/70 dark:bg-dark-card/60 backdrop-blur-md cursor-pointer shadow-sm hover:shadow-md transition-all"
 											onClick={() => setSelectedAchievement(achievement)}
 										>
 											<div className="absolute inset-0 rounded-2xl ring-1 ring-black/5 dark:ring-white/5 pointer-events-none" />

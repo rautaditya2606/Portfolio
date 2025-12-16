@@ -179,10 +179,10 @@ export default function ProfessionalPortfolio() {
 						<span className="w-1.5 h-1.5 rounded-full bg-primary-500" />
 						<span className="text-xs tracking-[0.18em] uppercase">Projects</span>
 					</div>
-					<h1 className="text-4xl font-semibold text-gray-900 dark:text-white mb-4">
+					<h1 className="text-3xl md:text-4xl font-semibold text-gray-900 dark:text-white mb-4">
 						Featured Work
 					</h1>
-					<p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+					<p className="text-base md:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
 						Full-stack applications and machine learning systems built for real-world impact.
 					</p>
 				</header>
@@ -191,24 +191,24 @@ export default function ProfessionalPortfolio() {
 				<div className="grid lg:grid-cols-3 gap-8">
 					{/* Project Navigation */}
 					<div className="lg:col-span-1">
-						<div className="relative rounded-2xl bg-light-card/70 dark:bg-dark-card/60 backdrop-blur-md shadow-sm p-6 sticky top-8">
+						<div className="relative rounded-2xl bg-light-card/70 dark:bg-dark-card/60 backdrop-blur-md shadow-sm p-4 md:p-6 lg:sticky lg:top-8">
 							<div className="absolute inset-0 rounded-2xl ring-1 ring-black/5 dark:ring-white/5 pointer-events-none" />
-							<h3 className="text-lg font-semibold dark:text-white text-gray-900 mb-4">
+							<h3 className="text-base md:text-lg font-semibold dark:text-white text-gray-900 mb-4">
 								Projects ({projects.length})
 							</h3>
-							<nav className="space-y-2">
+							<nav className="space-y-2 max-h-[400px] lg:max-h-none overflow-y-auto lg:overflow-visible">
 								{projects.map((project, index) => (
 									<button
 										key={project.name}
 										onClick={() => handleProjectChange(index)}
-										className={`w-full text-left p-3 rounded-lg transition-all duration-200 ${
-											selectedProject === index
-												? 'bg-primary-500/10 border-l-4 border-primary-600 text-primary-900 dark:text-primary-300'
-												: 'hover:bg-gray-100/50 dark:hover:bg-gray-800/50 text-gray-700 dark:text-gray-300'
-										}`}
-									>
-										<div className="font-medium">{project.name}</div>
-										<div className="text-sm text-gray-500 dark:text-gray-400 mt-1">{project.type}</div>
+											className={`w-full text-left p-2 md:p-3 rounded-lg transition-all duration-200 ${
+												selectedProject === index
+													? 'bg-primary-500/10 border-l-4 border-primary-600 text-primary-900 dark:text-primary-300'
+													: 'hover:bg-gray-100/50 dark:hover:bg-gray-800/50 text-gray-700 dark:text-gray-300'
+											}`}
+										>
+											<div className="font-medium text-sm md:text-base">{project.name}</div>
+											<div className="text-xs md:text-sm text-gray-500 dark:text-gray-400 mt-1">{project.type}</div>
 									</button>
 								))}
 							</nav>
@@ -223,13 +223,13 @@ export default function ProfessionalPortfolio() {
 						}`}>
 							<div className="absolute inset-0 rounded-2xl ring-1 ring-black/5 dark:ring-white/5 pointer-events-none" />
 								{/* Project Header */}
-								<div className="p-8 border-b dark:border-dark-border">
+								<div className="p-4 md:p-6 lg:p-8 border-b dark:border-dark-border">
 									<div className="flex items-start justify-between mb-4">
 										<div>
-											<h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+											<h2 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-2">
 												{currentProject.name}
 											</h2>
-											<p className="text-lg text-gray-600 dark:text-gray-300">{currentProject.type}</p>
+											<p className="text-base md:text-lg text-gray-600 dark:text-gray-300">{currentProject.type}</p>
 										</div>
 									</div>
 
@@ -245,7 +245,7 @@ export default function ProfessionalPortfolio() {
 								</div>
 
 								{/* Project Content */}
-								<div className="p-8">
+								<div className="p-4 md:p-6 lg:p-8">
 									{/* Description */}
 									<div className="mb-8">
 										<h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Overview</h3>

@@ -177,11 +177,11 @@ export const Obsessions = () => {
 						<span className="w-1.5 h-1.5 rounded-full bg-primary-500" />
 						<span className="text-xs tracking-[0.18em] uppercase">Passions</span>
 					</div>
-					<m.h2 className="text-4xl font-semibold mb-4 text-gray-900 dark:text-white">
-						Beyond Tech
-					</m.h2>
-					<m.p
-						className="text-gray-600 dark:text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed"
+				<m.h2 className="text-3xl md:text-4xl font-semibold mb-4 text-gray-900 dark:text-white">
+					Beyond Tech
+				</m.h2>
+				<m.p
+					className="text-base md:text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed px-4"
 						initial={{ opacity: 0, y: 20 }}
 						whileInView={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.5, delay: 0.1 }}
@@ -210,7 +210,7 @@ export const Obsessions = () => {
 							}
 						>
 							<m.div
-								className="relative rounded-2xl p-6 bg-light-card/70 dark:bg-dark-card/60 backdrop-blur-md border-transparent hover:border-transparent transition-all duration-500 overflow-hidden"
+								className="relative rounded-2xl p-4 md:p-6 bg-light-card/70 dark:bg-dark-card/60 backdrop-blur-md border-transparent hover:border-transparent transition-all duration-500 overflow-hidden"
 								whileHover={{
 									y: -8,
 									boxShadow:

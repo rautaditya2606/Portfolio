@@ -54,8 +54,8 @@ export const Experience = () => {
             <span className="w-1.5 h-1.5 rounded-full bg-primary-500" />
             <span className="text-xs tracking-[0.18em] uppercase">Experience</span>
           </div>
-          <h2 className="text-4xl font-semibold mt-5">Internships & Applied Work</h2>
-          <p className="mt-4 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-semibold mt-5">Internships & Applied Work</h2>
+          <p className="mt-4 text-base md:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto px-4">
             Real-world engineering work with production constraints, architectural decisions, and AI-driven systems.
           </p>
         </div>
@@ -69,7 +69,7 @@ export const Experience = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: idx * 0.07 }}
               viewport={{ once: true }}
-              className="relative rounded-2xl p-6 bg-light-card/70 dark:bg-dark-card/60 backdrop-blur-md shadow-sm hover:shadow-md transition-shadow"
+              className="relative rounded-2xl p-4 md:p-6 bg-light-card/70 dark:bg-dark-card/60 backdrop-blur-md shadow-sm hover:shadow-md transition-shadow"
             >
               {/* Subtle accent */}
               <div className="absolute inset-0 rounded-2xl ring-1 ring-black/5 dark:ring-white/5 pointer-events-none" />

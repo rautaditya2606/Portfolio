@@ -82,13 +82,13 @@ export default function Home() {
 
             {/* Role/Track with Animated Border */}
             <m.div
-              className="inline-block"
+              className="inline-block px-4"
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
-              <div className="px-6 py-3 rounded-full border-2 border-primary-500/30 bg-primary-500/5 backdrop-blur-sm">
-                <p className="text-lg md:text-xl lg:text-2xl text-primary-600 dark:text-primary-400 font-semibold">
+              <div className="px-4 py-2 md:px-6 md:py-3 rounded-full border-2 border-primary-500/30 bg-primary-500/5 backdrop-blur-sm">
+                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-primary-600 dark:text-primary-400 font-semibold text-center">
                   Data Science Explorer | ML & MLOps Enthusiast
                 </p>
               </div>
@@ -96,7 +96,7 @@ export default function Home() {
 
             {/* Description with Fade Up Animation */}
             <m.p
-              className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed"
+              className="text-base md:text-lg lg:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed px-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
@@ -114,12 +114,12 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.5 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8"
+              className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8 px-4"
             >
               <a
                 href="#about"
                 onClick={handleSmoothScroll}
-                className="group relative px-8 py-3 w-48 text-lg font-medium rounded-full overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 cursor-pointer"
+                className="group relative px-6 py-2.5 w-40 sm:w-48 text-base sm:text-lg font-medium rounded-full overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 cursor-pointer"
               >
                 <div 
                   className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -134,7 +134,7 @@ export default function Home() {
               <a
                 href="#skills"
                 onClick={handleSmoothScroll}
-                className="group relative px-8 py-3 w-48 text-lg font-medium rounded-full overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 cursor-pointer"
+                className="group relative px-6 py-2.5 w-40 sm:w-48 text-base sm:text-lg font-medium rounded-full overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 cursor-pointer"
               >
                 <div 
                   className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
